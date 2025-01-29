@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#87ceeb, #8b4513);
+    background-repeat: no-repeat;
+    height: 100vh;
+    image-rendering: pixelated;
+}
+
+.background-cont {
+    position: absolute;
+    bottom: 0;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.grass_block_side {
+    width: 100vw;
+    height: 25vh;
+    background: url(grass_block_side.png) repeat-x;
+    background-size: contain;
+    image-rendering: pixelated;
+}
+.dirt {
+    width: 100vw;
+    height: 25vh;
+    background: url(dirt.png) repeat-x;
+    background-size: contain;
+    image-rendering: pixelated;
+}
