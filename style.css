@@ -1,22 +1,24 @@
+/*Loading the fontvarient*/
 @font-face {
     font-family: 'MyCustomFont';
     src: url('Minecraft-Seven_v2.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
-
+/*Html body style*/
 body {
+    overflow: hidden !important;
     font-family: 'MyCustomFont', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(#87ceeb, #8b4513);
+    background: linear-gradient(180deg, rgba(135,206,235,1) 0%, rgba(139,69,19,1) 100%);;
     background-repeat: no-repeat;
     height: 100vh;
     image-rendering: pixelated;
     cursor: url(customcursor.png), default !important ;
 }
-.background-cont {
+/*Background structure*/
+.background {
     z-index: -1;
     position: absolute;
     bottom: 0;
@@ -25,29 +27,28 @@ body {
     align-items: center;
     flex-direction: column-reverse;
 }
-.short_grass {
+.layer-1 {
     width: 100vw;
     height: 25vh;
-    background: url(short_grass.png) repeat-x;
+    background: url(background/short_grass.png) repeat-x;
     background-size: contain;
     image-rendering: pixelated;
 }
-.grass_block_side {
-    z-index: -1;
+.layer-2 {
     width: 100vw;
     height: 25vh;
-    background: url(grass_block_side.png) repeat-x;
+    background: url(background/grass_block_side.png) repeat-x;
     background-size: contain;
     image-rendering: pixelated;
 }
-.dirt {
+.layer-3 {
     width: 100vw;
     height: 25vh;
-    background: url(dirt.png) repeat-x;
+    background: url(background/dirt.png) repeat-x;
     background-size: contain;
     image-rendering: pixelated;
 }
-
+/*Menu*/
 .menu {
     display: flex;
     flex-direction: column;
@@ -56,32 +57,43 @@ body {
     height: 100vh;
 }
 
-
+.menu-title, .menu-button {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 50vw;
+}
 .menu-title {
-    font-size: 12rem;
+    font-size: clamp(3rem, 10vw, 12rem);
     margin-bottom: 2vw;
+    text-shadow: 8px 8px 0px rgba(0, 0, 0, 0.83);
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: .3em;
 }
 
 .menu-button {
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.694);
+    background-image: url(button_texture.png);
+    background-size: contain;
+    image-rendering: pixelated;
     font-size: 2rem;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    background-color: gray;
-    width: 50vw;
-    margin: 2rem 0 2rem 0 ;
-    padding: .5vw;
-    border: 4px solid black;
+    margin: 2rem 0 2rem 0;
+    padding: 0.5em;
+    border: 4px solid rgb(0, 0, 0);
     box-shadow: inset 5px 5px 0px rgba(255, 255, 255, 0.4), inset -5px -7px 0px rgba(0, 0, 0, 0.459);
 }
 
+.menu-button:hover {
+    border: 4px solid rgb(255, 255, 255);
+}
+/*Responsivity*/
 @media (max-width: 900px) {
     .menu-title {
-        font-size: 5rem; 
+        width: 80vw;
     }
 
     .menu-button {
         font-size: 1.5rem; 
-        width: 60vw;
+        width: 80vw;
         box-shadow: inset 3px 3px 0px rgba(255, 255, 255, 0.4), inset -3px -4px 0px rgba(0, 0, 0, 0.459);
 
     }
