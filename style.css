@@ -1,10 +1,11 @@
+/*Loading the fontvarient*/
 @font-face {
     font-family: 'MyCustomFont';
     src: url('Minecraft-Seven_v2.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
+/*Html body style*/
 body {
     overflow: hidden !important;
     font-family: 'MyCustomFont', sans-serif;
@@ -16,6 +17,7 @@ body {
     image-rendering: pixelated;
     cursor: url(customcursor.png), default !important ;
 }
+/*Background structure*/
 .background {
     z-index: -1;
     position: absolute;
@@ -46,7 +48,7 @@ body {
     background-size: contain;
     image-rendering: pixelated;
 }
-
+/*Menu*/
 .menu {
     display: flex;
     flex-direction: column;
@@ -83,7 +85,7 @@ body {
 .menu-button:hover {
     border: 4px solid rgb(255, 255, 255);
 }
-
+/*Responsivity*/
 @media (max-width: 900px) {
     .menu-title {
         width: 80vw;

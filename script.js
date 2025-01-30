@@ -1,24 +1,25 @@
 //play button changing the screen to the difficulty selection
-document.getElementById("play-button").onclick = function() {difficultyScreen()};
+document.getElementById("play-button").onclick = function() {difficultyScreen();};
 
 function difficultyScreen() {
-    document.getElementById("menu-title").innerHTML = "Choose difficulty"
-    document.getElementById("menu-title").style.fontSize = "clamp(3rem, 5.5vw, 12rem)"
-    difficultyButtons()
+    document.getElementById("menu-title").innerHTML = "Choose difficulty";
+    document.getElementById("menu-title").style.fontSize = "clamp(3rem, 5.5vw, 12rem)";
+    difficultyButtons();
 }
 
 function difficultyButtons() {
-    document.getElementById("menu-buttons").innerHTML = `<div id="easy-button" class="menu-button">Easy</div>
+    document.getElementById("menu-buttons").innerHTML =`<div id="easy-button" class="menu-button">Easy</div>
     <div id="medium-button" class="menu-button">Medium</div>
     <div id="hard-button" class="menu-button">Hard</div>`;
 }
 //exit button (leaving the page)
-document.getElementById("exit-button").onclick = function() {ExitPage()};
+document.getElementById("exit-button").onclick = function() {ExitPage();};
 
 function ExitPage() {
-    window.close()
+    window.close();
 }
 // setting button
+///Background styles
 var background_index = 0;
 const background_variants = [
     {
@@ -59,34 +60,34 @@ const background_variants = [
 
 ];
 
-document.getElementById("settings-button").onclick = function() {settingsScreen()};
+document.getElementById("settings-button").onclick = function() {settingsScreen();};
 
 function settingsScreen() {
-    document.getElementById("menu-title").innerHTML = ""
+    document.getElementById("menu-title").innerHTML = "";
     document.getElementById("menu-buttons").innerHTML = `<div id="background-button" class="menu-button">Background: Grass</div>`;
-    document.getElementById("background-button").onclick = function() {changeBackground()};
+    document.getElementById("background-button").onclick = function() {changeBackground();};
 }
-
+///background index change
 function changeBackgroundIndex() {
     background_index += 1;
     if (background_index == background_variants.length) {
         background_index = 0;
     }
 }
-
+/// changeing the background
 function changeBackground() {
-    changeBackgroundIndex()
+    changeBackgroundIndex();
     document.getElementById("background-button").textContent = `Background: ${background_variants[background_index].title}`;
-    document.body.style.background = `${background_variants[background_index].color}`
+    document.body.style.background = `${background_variants[background_index].color}`;
     var layer_1 = document.getElementById("layer-1");
     var layer_2 = document.getElementById("layer-2");
     var layer_3 = document.getElementById("layer-3");
     layer_1.style.background = `url(background/${background_variants[background_index].layer_1}.png)`;
-    layer_1.style.backgroundSize = "contain"
+    layer_1.style.backgroundSize = "contain";
     layer_2.style.background = `url(background/${background_variants[background_index].layer_2}.png)`;
-    layer_2.style.backgroundSize = "contain"
+    layer_2.style.backgroundSize = "contain";
     layer_3.style.background = `url(background/${background_variants[background_index].layer_3}.png)`;
-    layer_3.style.backgroundSize = "contain"
+    layer_3.style.backgroundSize = "contain";
 }
 
 
