@@ -60,6 +60,16 @@ body {
 .menu-title {
     font-size: 12rem;
     margin-bottom: 2vw;
+    color: gray;
+    text-shadow: 
+        2px 2px 0px black, /* Right and down shadow */
+        -2px -2px 0px black, /* Left and up shadow */
+        2px -2px 0px black, /* Right and up shadow */
+        -2px 8px 0px black; /* Left and down shadow */
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 2rem;
+    width: 50vw;
+    text-align: center;
 }
 
 .menu-button {
