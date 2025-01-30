@@ -15,7 +15,13 @@ body {
     align-items: center;
     flex-direction: column-reverse;
 }
-
+.short_grass {
+    width: 100vw;
+    height: 25vh;
+    background: url(short_grass.png) repeat-x;
+    background-size: contain;
+    image-rendering: pixelated;
+}
 .grass_block_side {
     width: 100vw;
     height: 25vh;
