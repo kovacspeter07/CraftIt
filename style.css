@@ -1,4 +1,13 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('Minecraft-Seven_v2.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
+    font-family: 'MyCustomFont', sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(#87ceeb, #8b4513);
@@ -8,6 +17,7 @@ body {
 }
 
 .background-cont {
+    z-index: -1;
     position: absolute;
     bottom: 0;
     height: 50vh;
@@ -17,6 +27,7 @@ body {
 }
 
 .grass_block_side {
+    z-index: -1;
     width: 100vw;
     height: 25vh;
     background: url(grass_block_side.png) repeat-x;
@@ -29,4 +40,29 @@ body {
     background: url(dirt.png) repeat-x;
     background-size: contain;
     image-rendering: pixelated;
+}
+
+.menu {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.menu-title {
+    font-size: 10vw;
+    margin-bottom: 2vw;
+}
+
+.menu-button {
+    font-size: clamp(1rem, 2vw, 3rem);
+    transition: background-color 0.3s ease;
+    text-align: center;
+    background-color: gray;
+    width: 50vw;
+    margin: 2vw 0 2vw 0 ;
+    padding: .5vw;
 }
