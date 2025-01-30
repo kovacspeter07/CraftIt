@@ -14,18 +14,24 @@ body {
     background-repeat: no-repeat;
     height: 100vh;
     image-rendering: pixelated;
+    cursor: url(customcursor.png), default !important ;
 }
-
 .background-cont {
     z-index: -1;
     position: absolute;
     bottom: 0;
-    height: 50vh;
+    height: 75vh;
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
 }
-
+.short_grass {
+    width: 100vw;
+    height: 25vh;
+    background: url(short_grass.png) repeat-x;
+    background-size: contain;
+    image-rendering: pixelated;
+}
 .grass_block_side {
     z-index: -1;
     width: 100vw;
@@ -49,6 +55,7 @@ body {
     justify-content: center;
     height: 100vh;
 }
+
 
 .menu-title {
     font-size: 12rem;
