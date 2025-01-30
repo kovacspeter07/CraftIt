@@ -12,4 +12,10 @@ function difficultyButtons() {
     <div id="medium-button" class="menu-button">Medium</div>
     <div id="hard-button" class="menu-button">Hard</div>`;
 }
-//this point forward it's gonna be something else(change this text)
+//exit button (leaving the page)
+document.getElementById("exit-button").onclick = function() {ExitPage()};
+
+function ExitPage() {
+    window.close()
+}
+
