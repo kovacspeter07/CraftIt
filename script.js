@@ -1,5 +1,7 @@
-document.getElementById("play").onclick = function() {difficultyButtons()};
+document.getElementById("play-button").onclick = function() {difficultyButtons()};
 
 function difficultyButtons() {
-    document.getElementById("play").innerHTML = "no play for ye";
+    document.getElementById("menu-buttons").innerHTML = `<div id="play" class="menu-button">Easy</div>
+    <div id="play" class="menu-button">Medium</div>
+    <div id="play" class="menu-button">Hard</div>`;
 }
