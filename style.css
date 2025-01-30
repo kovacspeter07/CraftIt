@@ -20,12 +20,18 @@ body {
     z-index: -1;
     position: absolute;
     bottom: 0;
-    height: 50vh;
+    height: 75vh;
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
 }
-
+.short_grass {
+    width: 100vw;
+    height: 25vh;
+    background: url(short_grass.png) repeat-x;
+    background-size: contain;
+    image-rendering: pixelated;
+}
 .grass_block_side {
     z-index: -1;
     width: 100vw;
