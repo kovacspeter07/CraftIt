@@ -1,0 +1,15 @@
+-Főoldal: start, options, exit?
+-Options: háttér, napszak stb.
+-start után nehézség választás: easy, medium, hard
+    -easy: megakapja a játékos az item-eket, nem kell keresni
+    -medium: le kell gyártani a mellék item-eket, csak nyersanyagokat kap a játékos
+    -hard: ki is kell keresni sok item közül a megfelelőket
+        ??akár a tárgyak bonyolultságán is lehetne változtatni: három csoportba soroljuk az itemeket és nehézség szerint osztjuk ki az esélyeket
+        ??nehézség szerint háttér változtatása: hard: nether stb.
+-pontszám: legmagasabb pontszám nehézség szerint
+    -10 craft és számolja az időt
+    -hard-on mondjuk több pont
+-game over screen
+??esetleg 1v1
+
+További utólag felmerülő ötletek:
