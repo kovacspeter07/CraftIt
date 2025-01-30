@@ -14,10 +14,10 @@ function difficultyButtons() {
 }
 //use this function to put a back button on the page
 function backButton() {
-    document.getElementById("back-button").innerHTML = `<button>Back</button>`
+    document.getElementById("back-div").innerHTML = `<button id="back-button">Back</button>`
 }
 
-document.getElementById("back-button").onclick = function() {reloadScreen()};
+document.getElementById("back-div").onclick = function() {reloadScreen()};
 
 function reloadScreen() {
     location.reload();
