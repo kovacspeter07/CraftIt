@@ -10,7 +10,7 @@ body {
 .background-cont {
     position: absolute;
     bottom: 0;
-    height: 50vh;
+    height: 75vh;
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
