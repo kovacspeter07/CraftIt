@@ -14,8 +14,8 @@ body {
     background-repeat: no-repeat;
     height: 100vh;
     image-rendering: pixelated;
+    cursor: url(customcursor.png), default !important ;
 }
-
 .background-cont {
     z-index: -1;
     position: absolute;
