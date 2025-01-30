@@ -3,6 +3,7 @@ document.getElementById("play-button").onclick = function() {difficultyScreen()}
 
 function difficultyScreen() {
     document.getElementById("menu-title").innerHTML = "Choose difficulty"
+    document.getElementById("menu-title").style.fontSize = "6em";
     difficultyButtons()
 }
 
