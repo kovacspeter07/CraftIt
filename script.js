@@ -1,17 +1,21 @@
 //play button changing the screen to the difficulty selection
-document.getElementById("play-button").onclick = function() {difficultyScreen();};
+document.getElementById("play-button").onclick = function() {showMenu("difficulty-menu");
+};
 
-function difficultyScreen() {
-    document.getElementById("menu-title").innerHTML = "Choose difficulty";
-    document.getElementById("menu-title").style.fontSize = "clamp(3rem, 5.5vw, 12rem)";
-    difficultyButtons();
+document.querySelectorAll(".back-button").forEach(button => {
+    button.onclick = function() {
+        showMenu("main-menu");
+    };
+});
+
+function showMenu(menuId) {
+    document.querySelectorAll(".menu").forEach(menu => {
+        menu.classList.add("hidden");
+    });
+    document.getElementById(menuId).classList.remove("hidden");
+    
 }
 
-function difficultyButtons() {
-    document.getElementById("menu-buttons").innerHTML =`<div id="easy-button" class="menu-button">Easy</div>
-    <div id="medium-button" class="menu-button">Medium</div>
-    <div id="hard-button" class="menu-button">Hard</div>`;
-}
 //exit button (leaving the page)
 document.getElementById("exit-button").onclick = function() {ExitPage();};
 
@@ -19,6 +23,11 @@ function ExitPage() {
     window.close();
 }
 // setting button
+document.getElementById("settings-button").onclick = function() {showMenu("settings-menu");
+};
+document.getElementById("background-button").onclick = function() {changeBackground();
+};
+
 ///Background styles
 var background_index = 0;
 const background_variants = [
@@ -60,13 +69,6 @@ const background_variants = [
 
 ];
 
-document.getElementById("settings-button").onclick = function() {settingsScreen();};
-
-function settingsScreen() {
-    document.getElementById("menu-title").innerHTML = "";
-    document.getElementById("menu-buttons").innerHTML = `<div id="background-button" class="menu-button">Background: Grass</div>`;
-    document.getElementById("background-button").onclick = function() {changeBackground();};
-}
 ///background index change
 function changeBackgroundIndex() {
     background_index += 1;
