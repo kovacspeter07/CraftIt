@@ -9,6 +9,12 @@ document.querySelectorAll(".back-button").forEach((button) => {
   });
 });
 
+document.querySelectorAll(".difficulty-button").forEach((button) => {
+  button.addEventListener("click", function () {
+    showMenu("play-menu");
+  });
+});
+
 document.querySelectorAll(".menu-button").forEach((button) => {
   button.onclick = function () {
     document.getElementById("button-sound").play();
