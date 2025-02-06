@@ -111,10 +111,12 @@ body {
 }
 
 /*Play menu*/
-
-#crafting_table {
+.tiles-container {
+    background-image: url(crafting_table2.png);
+    background-repeat: no-repeat;
     image-rendering: pixelated;
-    object-fit: contain;
     height: 80vh;
     width: 90vw;
+    background-size: contain;
+    background-position: center;
 }
