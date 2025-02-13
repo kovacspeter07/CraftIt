@@ -11,20 +11,45 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    
-      <div class="background">
-        <div class="layer-3" id="layer-3"></div>
-        <div class="layer-2" id="layer-2"></div>
-        <div class="layer-1" id="layer-1"></div>
-      </div>
-    <div class="menu" id="menu">
-      <div id="menu-title" class="menu-title">CraftIt</div>
-      <div id="menu-buttons">
+    <div class="background">
+      <div class="layer-3" id="layer-3"></div>
+      <div class="layer-2" id="layer-2"></div>
+      <div class="layer-1" id="layer-1"></div>
+    </div>
+
+    <div class="menu" id="main-menu">
+      <div class="menu-title">CraftIt</div>
+      <div class="menu-buttons">
         <div id="play-button" class="menu-button">Play</div>
         <div id="settings-button" class="menu-button">Settings</div>
         <div id="exit-button" class="menu-button">Exit</div>
       </div>
     </div>
+
+    <div class="menu hidden" id="difficulty-menu">
+      <div class="menu-title smaller-title">Choose Difficulty</div>
+      <div class="menu-buttons">
+        <div id="easy-button" class="menu-button difficulty-button">Easy</div>
+        <div id="medium-button" class="menu-button difficulty-button">Medium</div>
+        <div id="hard-button" class="menu-button difficulty-button">Hard</div>
+        <div class="menu-button back-button">Back</div>
+      </div>
+    </div>
+
+    <div class="menu hidden" id="settings-menu">
+      <div class="menu-title smaller-title">Settings</div>
+      <div class="menu-buttons">
+        <div id="background-button" class="menu-button">Background: Grass</div>
+        <div class="menu-button back-button">Back</div>
+      </div>
+    </div>
+
+    <div class="menu hidden" id="play-menu">
+      <div class="tiles-container">
+      </div>
+    </div>
+
+    <audio id="button-sound" src="button-sound.mp3" preload="auto"></audio>
     <script src="script.js"></script>
   </body>
 </html>
