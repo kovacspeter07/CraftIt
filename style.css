@@ -129,14 +129,16 @@ body {
     position: absolute;
     background-color: rgba(17, 0, 255, 0);
     display: grid;
-    gap: .8vh;
+    gap: .95vh;
+    row-gap: 1.0vh;
 }
 .cell-container-3x3 {
     top: 8.27vh;
-    left: 14.35vh;
-    grid-template-columns: repeat(3,7.65vh);
-    grid-template-rows: repeat(3,7.55vh);
-    gap: 1.04vh;
+    left: 14.3vh;
+    grid-template-columns: repeat(3,7.7vh);
+    grid-template-rows: repeat(3,7.586vh);
+    gap: .95vh;
+    row-gap: 1.0vh;
 }
 .cell-container-1x1 {
     top: 14.9vh;
@@ -145,11 +147,12 @@ body {
     grid-template-rows: repeat(1,11.5vh);
 }
 .cell-container-3x9{
-    top: 40.02vh;
-    left: 3.95vh;
-    grid-template-columns: repeat(9,7.8vh);
-    grid-template-rows: repeat(3,7.9vh);
-    gap: .88vh;
+    top: 40.31vh;
+    left: 3.88vh;
+    grid-template-columns: repeat(9,7.64vh);
+    grid-template-rows: repeat(3,7.586vh);
+    gap: .96vh;
+    row-gap: 1.02vh;
 }
 
 .cell-container > div {
@@ -166,9 +169,9 @@ body {
 
 .cell-container-1x9{
     position: absolute;
-    grid-template-columns: repeat(9,7.75vh);
-    grid-template-rows: repeat(1,7.9vh);
-    top: 68vh;
-    left: 3.67vh;
-    gap: .88vh;
+    grid-template-columns: repeat(9,7.64vh);
+    grid-template-rows: repeat(1,7.586vh);
+    top: 68.16vh;
+    left: 3.88vh;
+    gap: .96vh;
 }
