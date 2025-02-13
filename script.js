@@ -12,6 +12,7 @@ document.querySelectorAll(".back-button").forEach((button) => {
 document.querySelectorAll(".difficulty-button").forEach((button) => {
   button.addEventListener("click", function () {
     showMenu("play-menu");
+    calculateGridPosition();
   });
 });
 
@@ -114,3 +115,20 @@ function changeBackground() {
   layer_3.style.background = `url(background/${background_variants[background_index].layer_3}.png)`;
   layer_3.style.backgroundSize = "contain";
 }
+
+// grid layout
+// function calculateGridPosition(){
+//     var picture = document.getElementById('crafting_img');
+//     var cells = document.getElementById('cell-container');
+//     var distance_top = picture.offsetTop;
+//     var distance_left = picture.offsetLeft;
+//     cells.style.marginTop = distance_top + "px";
+//     cells.style.marginLeft = distance_left;
+//     console.log(distance_left)
+// }
+
+function reportWindowSize() {
+    calculateGridPosition()
+  }
+  
+  window.onresize = reportWindowSize;
