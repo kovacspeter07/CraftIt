@@ -142,7 +142,9 @@ body {
     left: 3.95vh;
     grid-template-columns: repeat(9,7.8vh);
     grid-template-rows: repeat(3,7.9vh);
-}
+    gap: .88vh;
+
+    }
 .cell-container > div {
     background-color: #fd171700;
     border: 2px solid rgb(255, 0, 242);
@@ -151,4 +153,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.cell-container-1x9{
+    position: absolute;
+    grid-template-columns: repeat(9,7.75vh);
+    grid-template-rows: repeat(1,7.9vh);
+    top: 68vh;
+    left: 3.67vh;
+    gap: .88vh;
 }
