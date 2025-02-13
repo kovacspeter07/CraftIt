@@ -130,12 +130,19 @@ body {
     background-color: rgba(17, 0, 255, 0);
     display: grid;
     gap: .8vh;
-    }
-.cell-container-3x3{
-    top: 8vh;
+}
+.cell-container-3x3 {
+    top: 8.27vh;
     left: 14.35vh;
-    grid-template-columns: repeat(3,7.75vh);
-    grid-template-rows: repeat(3,7.9vh);
+    grid-template-columns: repeat(3,7.65vh);
+    grid-template-rows: repeat(3,7.55vh);
+    gap: 1.04vh;
+}
+.cell-container-1x1 {
+    top: 14.9vh;
+    left: 57.5vh;
+    grid-template-columns: repeat(1,11.5vh);
+    grid-template-rows: repeat(1,11.5vh);
 }
 .cell-container-3x9{
     top: 40.02vh;
@@ -143,17 +150,20 @@ body {
     grid-template-columns: repeat(9,7.8vh);
     grid-template-rows: repeat(3,7.9vh);
     gap: .88vh;
+}
 
-    }
 .cell-container > div {
-    background-color: #fd171700;
-    border: 2px solid rgb(255, 0, 242);
     font-size: 30px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.cell-container > div:hover {
+    background-color: rgb(163, 163, 163);
+  }
+
 .cell-container-1x9{
     position: absolute;
     grid-template-columns: repeat(9,7.75vh);
