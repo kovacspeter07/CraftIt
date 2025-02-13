@@ -12,6 +12,7 @@ document.querySelectorAll(".back-button").forEach((button) => {
 document.querySelectorAll(".difficulty-button").forEach((button) => {
   button.addEventListener("click", function () {
     showMenu("play-menu");
+    calculateGridPosition();
   });
 });
 
@@ -113,4 +114,13 @@ function changeBackground() {
   layer_2.style.backgroundSize = "contain";
   layer_3.style.background = `url(background/${background_variants[background_index].layer_3}.png)`;
   layer_3.style.backgroundSize = "contain";
+}
+
+// grid layout
+function calculateGridPosition(){
+    var picture = document.getElementById('tiles-container')
+    var distance_top = picture.offsetTop;
+    var distance_left = picture.offsetLeft;
+    picture.style.marginTop = distance_top
+    picture.style.marginLeft = distance_left
 }
