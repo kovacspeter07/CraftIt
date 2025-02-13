@@ -112,25 +112,32 @@ body {
 
 /*Play menu*/
 .tiles-container {
-    background-image: url(crafting_table2.png);
-    background-repeat: no-repeat;
     image-rendering: pixelated;
+    background-color: rgba(0, 128, 0, 0.288);
+    display: flex;
+}
+.crafting_img {
+    position: relative;
     height: 80vh;
-    width: 90vw;
-    background-size: contain;
-    background-position: center;
+    width: auto;
+    background-color: rgba(255, 68, 0, 0.452);
 }
 
 /* crafting table area */
 .cell-container {
+    position: absolute;
+    background-color: rgba(17, 0, 255, 0.425);
     display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: rgba(30, 143, 255, 0.171);
-    margin-left: 500px;
+    grid-template-columns: repeat(3,150px);
+    grid-template-rows: repeat(3,150px);
+
     }
 .cell-container > div {
     background-color: #f1f1f128;
     border: 1px solid black;
     font-size: 30px;
     text-align: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

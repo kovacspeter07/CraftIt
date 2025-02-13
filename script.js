@@ -118,9 +118,18 @@ function changeBackground() {
 
 // grid layout
 function calculateGridPosition(){
-    var picture = document.getElementById('tiles-container')
+    var picture = document.getElementById('crafting_img');
+    var cells = document.getElementById('cell-container');
     var distance_top = picture.offsetTop;
     var distance_left = picture.offsetLeft;
-    picture.style.marginTop = distance_top
-    picture.style.marginLeft = distance_left
+    cells.style.marginTop = distance_top;
+    cells.style.marginLeft = distance_left;
+    console.log("GERE")
+    console.log(distance_left)
 }
+
+function reportWindowSize() {
+    calculateGridPosition()
+  }
+  
+  window.onresize = reportWindowSize;
