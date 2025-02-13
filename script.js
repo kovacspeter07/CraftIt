@@ -117,16 +117,15 @@ function changeBackground() {
 }
 
 // grid layout
-function calculateGridPosition(){
-    var picture = document.getElementById('crafting_img');
-    var cells = document.getElementById('cell-container');
-    var distance_top = picture.offsetTop;
-    var distance_left = picture.offsetLeft;
-    cells.style.marginTop = distance_top;
-    cells.style.marginLeft = distance_left;
-    console.log("GERE")
-    console.log(distance_left)
-}
+// function calculateGridPosition(){
+//     var picture = document.getElementById('crafting_img');
+//     var cells = document.getElementById('cell-container');
+//     var distance_top = picture.offsetTop;
+//     var distance_left = picture.offsetLeft;
+//     cells.style.marginTop = distance_top + "px";
+//     cells.style.marginLeft = distance_left;
+//     console.log(distance_left)
+// }
 
 function reportWindowSize() {
     calculateGridPosition()

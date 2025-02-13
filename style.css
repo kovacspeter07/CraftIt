@@ -112,6 +112,7 @@ body {
 
 /*Play menu*/
 .tiles-container {
+    position: relative;
     image-rendering: pixelated;
     background-color: rgba(0, 128, 0, 0.288);
     display: flex;
@@ -126,6 +127,8 @@ body {
 /* crafting table area */
 .cell-container {
     position: absolute;
+    top: 8vh;
+    left: 14vh;
     background-color: rgba(17, 0, 255, 0.425);
     display: grid;
     grid-template-columns: repeat(3,150px);
