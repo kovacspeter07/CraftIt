@@ -127,15 +127,18 @@ body {
 /* crafting table area */
 .cell-container {
     position: absolute;
-    top: 8vh;
-    left: 14.35vh;
     background-color: rgba(17, 0, 255, 0);
     display: grid;
-    grid-template-columns: repeat(3,7.75vh);
-    grid-template-rows: repeat(3,7.9vh);
-    gap: .8vh;
+    gap: .88vh;
 
     }
+.cell-container-3x3{
+    position: absolute;
+    grid-template-columns: repeat(3,7.75vh);
+    grid-template-rows: repeat(3,7.9vh);
+    top: 8vh;
+    left: 14.35vh;
+}
 .cell-container > div {
     background-color: #fd171700;
     border: 2px solid rgb(255, 0, 242);
@@ -144,4 +147,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.cell-container-1x9{
+    position: absolute;
+    grid-template-columns: repeat(9,7.75vh);
+    grid-template-rows: repeat(1,7.9vh);
+    top: 68vh;
+    left: 3.67vh;
+    gap: .88vh;
 }
