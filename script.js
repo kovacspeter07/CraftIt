@@ -171,7 +171,7 @@ function putItemDown(){
       >
   `;
   //the cell is going to have to be randomized
-  document.getElementById('cell-10').innerHTML = item;
+  document.getElementById('teszt').innerHTML = item;
 }
 
 function dobozDragStart(){
@@ -181,6 +181,8 @@ function dobozDragStart(){
 
 function dobozDragEnd(){
   whereIsItem.isDragged = false
+  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
+  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
   putItemDown()
 }
 
