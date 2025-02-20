@@ -175,3 +175,7 @@ body {
     left: 3.88vh;
     gap: .96vh;
 }
+
+.item{
+    width: 200px;
+}

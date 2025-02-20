@@ -145,10 +145,21 @@ function changeBackground() {
 //put the changed stats in these functions
 function easyPressed() {
   console.log("easy")
+  putItemDown()
 }
 function mediumPressed() {
   console.log("medium")
 }
 function hardPressed() {
   console.log("hard")
+}
+
+//drag and drop
+//This function is going to have to be changed further in the development
+function putItemDown(){
+  const item =`
+      <img class="item" id="stick" src="item/stick.png">
+  `;
+  //the cell is going to have to be randomized
+  document.getElementById('cell-10').innerHTML = item;
 }
