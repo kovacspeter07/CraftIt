@@ -148,6 +148,7 @@ function changeBackground() {
 //put the changed stats in these functions
 function easyPressed() {
   console.log("easy")
+  putItemDown()
 }
 function mediumPressed() {
   console.log("medium")
@@ -156,8 +157,55 @@ function hardPressed() {
   console.log("hard")
 }
 
+
+//drag and drop
+let whereIsItem = {
+  x: undefined,
+  y: undefined,
+  isDragged: false,
+};
+//This function is going to have to be changed further in the development
+function putItemDown(){
+  const item =`
+      <img class="item" id="stick" src="item/stick.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
+      style="position: absolute; left: ${whereIsItem.x}px; top: ${whereIsItem.y}px;"
+      onmousedown="dobozDragStart()"
+      onmouseup = dobozDragEnd()
+      onmousemove = dobozMouseMove(window.event)
+      >
+  `;
+  //the cell is going to have to be randomized
+  document.getElementById('teszt').innerHTML = item;
+}
+
+function dobozDragStart(){
+  whereIsItem.isDragged = true
+  putItemDown();
+}
+
+function dobozDragEnd(){
+  whereIsItem.isDragged = false
+  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
+  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+  putItemDown()
+}
+
+function dobozMouseMove(event){
+  if(whereIsItem.isDragged){
+    const box = event.target.closest(".item")
+    if (!box){
+      return;
+    }
+    whereIsItem.x = document.getElementById("crafting_img").offsetLeft + event.clientX -box.offsetWidth /2
+    whereIsItem.y = document.getElementById("crafting_img").offsetTop + event.clientY - box.offsetHeight /2
+    putItemDown()
+  }
+
+}
+
 function getRandom() {
   const craftableItems = items.filter(item => item.craftable);
   const randomIndex = Math.floor(Math.random() * craftableItems.length);
   return craftableItems[randomIndex]
 }
+
