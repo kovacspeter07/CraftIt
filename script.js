@@ -9,11 +9,19 @@ document.querySelectorAll(".back-button").forEach((button) => {
   });
 });
 
-document.querySelectorAll(".difficulty-button").forEach((button) => {
-  button.addEventListener("click", function () {
-    showMenu("play-menu");
-    calculateGridPosition();
-  });
+document.getElementById("easy-button").addEventListener("click", function () {
+  showMenu("play-menu");
+  easyPressed()
+});
+
+document.getElementById("medium-button").addEventListener("click", function () {
+  showMenu("play-menu");
+  mediumPressed()
+});
+
+document.getElementById("hard-button").addEventListener("click", function () {
+  showMenu("play-menu");
+  hardPressed()
 });
 
 document.querySelectorAll(".menu-button").forEach((button) => {
@@ -127,8 +135,20 @@ function changeBackground() {
 //     console.log(distance_left)
 // }
 
-function reportWindowSize() {
-    calculateGridPosition()
-  }
+// function reportWindowSize() {
+//     calculateGridPosition()
+//   }
   
-  window.onresize = reportWindowSize;
+//   window.onresize = reportWindowSize;
+
+// changing the difficulty
+//put the changed stats in these functions
+function easyPressed() {
+  console.log("easy")
+}
+function mediumPressed() {
+  console.log("medium")
+}
+function hardPressed() {
+  console.log("hard")
+}
