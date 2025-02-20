@@ -1,3 +1,6 @@
+import { items } from "./data.js";
+
+
 //play button changing the screen to the difficulty selection
 document.getElementById("play-button").addEventListener("click", function () {
   showMenu("difficulty-menu");
@@ -154,6 +157,7 @@ function hardPressed() {
   console.log("hard")
 }
 
+
 //drag and drop
 let whereIsItem = {
   x: undefined,
@@ -198,3 +202,10 @@ function dobozMouseMove(event){
   }
 
 }
+
+function getRandom() {
+  const craftableItems = items.filter(item => item.craftable);
+  const randomIndex = Math.floor(Math.random() * craftableItems.length);
+  return craftableItems[randomIndex]
+}
+
