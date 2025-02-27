@@ -145,42 +145,84 @@ function changeBackground() {
 //put the changed stats in these functions
 function easyPressed() {
   console.log("easy");
-  putItemDown();
+  preSpawn();
   timer(60);
 }
 function mediumPressed() {
   console.log("medium");
-  putItemDown();
+  preSpawn();
   timer(40);
 }
 function hardPressed() {
   console.log("hard");
-  putItemDown();
+  preSpawn();
   timer(20);
 }
 
 //drag and drop
 let whereIsItem = {
+  id: 1,
   x: undefined,
   y: undefined,
   isDragged: false,
   lastposition: undefined,
 };
+
+let whereIsItem1 = {
+    x: undefined,
+    y: undefined,
+  };
+
+  let whereIsItem2 = {
+    x: undefined,
+    y: undefined,
+  };
+
+function preSpawn() {
+    putItemDown();
+}
 //This function is going to have to be changed further in the development
 function putItemDown(){
-  const item =`
-      <img class="item" id="stick" src="item/stick.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
-      style="position: absolute; left: ${whereIsItem.x}px; top: ${whereIsItem.y}px;"
-      onmousedown="dragStart()"
-      onmouseup = dragEnd()
-      onmousemove = dragMouseMove(window.event)
-      >
-  `;
-  //the cell is going to have to be randomized
+    if (whereIsItem.id == 1){
+        whereIsItem1.x = whereIsItem.x;
+        whereIsItem1.y = whereIsItem.y;
+    }
+    if (whereIsItem.id == 2){
+        whereIsItem2.x = whereIsItem.x;
+        whereIsItem2.y = whereIsItem.y;
+    }
+    var item1 =`
+    <img class="item" id="1" src="item/stick.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
+    style="position: absolute; left: ${whereIsItem1.x}px; top: ${whereIsItem1.y}px;"
+    onmousedown="dragStart(1)"
+    onmouseup = dragEnd()
+    onmousemove = dragMouseMove(window.event)
+    >
+    `;
+    var item2 =`
+    <img class="item" id="2" src="item/apple.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
+    style="position: absolute; left: ${whereIsItem2.x}px; top: ${whereIsItem2.y}px;"
+    onmousedown="dragStart(2)"
+    onmouseup = dragEnd()
+    onmousemove = dragMouseMove(window.event)
+    >
+`;
+    
+    //the cell is going to have to be randomized
+  var item = item1 + item2
   document.getElementById('test').innerHTML = item;
 }
 
-function dragStart(){
+function dragStart(num){
+  whereIsItem.id = num;
+  if (whereIsItem.id == 1){
+    whereIsItem.x = whereIsItem1.x;
+    whereIsItem.y = whereIsItem1.y;
+  }
+  if (whereIsItem.id == 2){
+    whereIsItem.x = whereIsItem2.x;
+    whereIsItem.y = whereIsItem2.y;
+  }
   whereIsItem.isDragged = true;
   putItemDown();
 }
@@ -206,7 +248,7 @@ function dragMouseMove(event){
 
 //chooses which grid overlaps
 function gridSelect(){
-  var itemrect = document.getElementById("stick").getBoundingClientRect();
+  var itemrect = document.getElementById(`${whereIsItem.id}`).getBoundingClientRect();
   var x39rect = document.getElementById("x39rect").getBoundingClientRect();
   var x33rect = document.getElementById("x33rect").getBoundingClientRect();
   var x19rect = document.getElementById("x19rect").getBoundingClientRect();
@@ -239,7 +281,7 @@ function whichSquare(x, y, cellID){
   for (let i = x; i < y; i++) {
     let locCellID = cellID + i;
     var cellrect = document.getElementById(locCellID).getBoundingClientRect();
-    var itemrect = document.getElementById("stick").getBoundingClientRect();
+    var itemrect = document.getElementById(`${whereIsItem.id}`).getBoundingClientRect();
     if (itemrect.top > cellrect.top - 50 && itemrect.bottom < cellrect.bottom + 50 && itemrect.left > cellrect.left - 50 && itemrect.right < cellrect.right + 50){
       whereIsItem.x = document.getElementById(locCellID).getBoundingClientRect().left;
       whereIsItem.y = document.getElementById(locCellID).getBoundingClientRect().top;
