@@ -433,14 +433,11 @@ function chooseCraft() {
 function checkCorrectCraft() {
   let isCraftCorrect = false;
 
-  // Minden receptet végignézünk
   for (let i = 0; i < craftedItemList.length; i++) {
     let recipe = craftedItemList[i];
 
-    // Ellenőrizzük, hogy az adott recept megfelel-e az itemList-nek
     let isRecipeMatch = true;
 
-    // Mindegyik cellát összehasonlítjuk
     for (let j = 0; j < recipe.length; j++) {
       if (recipe[j] !== itemList[j]) {
         console.log(recipe , itemList)
@@ -448,8 +445,6 @@ function checkCorrectCraft() {
         break;
       }
     }
-
-    // Ha bármelyik recept megegyezik, akkor a crafting sikerült
     if (isRecipeMatch) {
       isCraftCorrect = true;
       break;
