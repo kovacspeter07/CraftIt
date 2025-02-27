@@ -216,14 +216,24 @@ function gridSelect(){
 }
 
 function x39selected(){
-  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
-  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+  whichSquare(10, 37, "cell-")
 }
 function x33selected(){
-  whereIsItem.x = document.getElementById("cell-crafting-1").getBoundingClientRect().left;
-  whereIsItem.y = document.getElementById("cell-crafting-1").getBoundingClientRect().top;
+  whichSquare(1, 10, "cell-crafting-")
 }
 function x19selected(){
-  whereIsItem.x = document.getElementById("cell-1").getBoundingClientRect().left;
-  whereIsItem.y = document.getElementById("cell-1").getBoundingClientRect().top;
+  whichSquare(1, 10, "cell-")
+}
+
+function whichSquare(x, y, cellID){
+  for (let i = x; i < y; i++) {
+    let locCellID = cellID + i
+    var cellrect = document.getElementById(locCellID).getBoundingClientRect()
+    var itemrect = document.getElementById("stick").getBoundingClientRect()
+    if (itemrect.top > cellrect.top - 50 && itemrect.bottom < cellrect.bottom + 50 && itemrect.left > cellrect.left - 50 && itemrect.right < cellrect.right + 50){
+      whereIsItem.x = document.getElementById(locCellID).getBoundingClientRect().left;
+      whereIsItem.y = document.getElementById(locCellID).getBoundingClientRect().top;
+      break;
+    }
+  } 
 }
