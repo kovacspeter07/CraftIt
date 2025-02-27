@@ -260,3 +260,14 @@ function timer(secund){
       }
   }, 1000);
 }
+
+// let spawnedItems = {
+//   cellID: undefined,
+//   id: "stick",
+// };
+
+// function changeSpawnedItems(cellID, id) {
+//   for (let i = "stick"; i == "stick";) {
+//     spawnedItems.cellID = cellID
+//   } 
+// }
