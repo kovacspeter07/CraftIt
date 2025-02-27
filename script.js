@@ -1,6 +1,3 @@
-import { items } from "./data.js";
-
-
 //play button changing the screen to the difficulty selection
 document.getElementById("play-button").addEventListener("click", function () {
   showMenu("difficulty-menu");
@@ -157,7 +154,6 @@ function hardPressed() {
   console.log("hard")
 }
 
-
 //drag and drop
 let whereIsItem = {
   x: undefined,
@@ -169,28 +165,28 @@ function putItemDown(){
   const item =`
       <img class="item" id="stick" src="item/stick.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
       style="position: absolute; left: ${whereIsItem.x}px; top: ${whereIsItem.y}px;"
-      onmousedown="dobozDragStart()"
-      onmouseup = dobozDragEnd()
-      onmousemove = dobozMouseMove(window.event)
+      onmousedown="dragStart()"
+      onmouseup = dragEnd()
+      onmousemove = dragMouseMove(window.event)
       >
   `;
   //the cell is going to have to be randomized
-  document.getElementById('teszt').innerHTML = item;
+  document.getElementById('test').innerHTML = item;
 }
 
-function dobozDragStart(){
+function dragStart(){
   whereIsItem.isDragged = true
   putItemDown();
 }
 
-function dobozDragEnd(){
+function dragEnd(){
   whereIsItem.isDragged = false
   whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
   whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
   putItemDown()
 }
 
-function dobozMouseMove(event){
+function dragMouseMove(event){
   if(whereIsItem.isDragged){
     const box = event.target.closest(".item")
     if (!box){
@@ -202,10 +198,3 @@ function dobozMouseMove(event){
   }
 
 }
-
-function getRandom() {
-  const craftableItems = items.filter(item => item.craftable);
-  const randomIndex = Math.floor(Math.random() * craftableItems.length);
-  return craftableItems[randomIndex]
-}
-
