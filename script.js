@@ -215,8 +215,8 @@ function gridSelect(){
     x19selected();
   }
   else {
-    whereIsItem.x = whereIsItem.lastposition.left
-    whereIsItem.y = whereIsItem.lastposition.top
+    whereIsItem.x = whereIsItem.lastposition.left;
+    whereIsItem.y = whereIsItem.lastposition.top;
   }
 }
 
