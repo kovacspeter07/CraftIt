@@ -181,8 +181,7 @@ function dragStart(){
 
 function dragEnd(){
   whereIsItem.isDragged = false
-  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
-  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+  gridSelect()
   putItemDown()
 }
 
@@ -197,4 +196,20 @@ function dragMouseMove(event){
     putItemDown()
   }
 
+}
+
+function gridSelect(){
+  var itemrect = document.getElementById("stick").getBoundingClientRect()
+  var x11rect = document.getElementById("stick").getBoundingClientRect()
+  var x33rect = document.getElementById("stick").getBoundingClientRect()
+  var x39rect = document.getElementById("x39rect").getBoundingClientRect()
+  var x19rect = document.getElementById("stick").getBoundingClientRect()
+  if (itemrect.top > x39rect.top - 50 && itemrect.bottom < x39rect.bottom + 50 && itemrect.left > x39rect.left - 50 && itemrect.right < x39rect.right + 50){
+    x39selected()
+  }
+}
+
+function x39selected(){
+  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
+    whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
 }
