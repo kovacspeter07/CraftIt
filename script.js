@@ -143,21 +143,25 @@ function changeBackground() {
 
 // changing the difficulty
 //put the changed stats in these functions
+let difficulty = "easy"
 function easyPressed() {
-  console.log("easy");
   putItemDown();
+  chooseCraft()
   timer(60);
 }
 function mediumPressed() {
-  console.log("medium");
+  difficulty = "medium"
+  chooseCraft()
   putItemDown();
   timer(40);
 }
 function hardPressed() {
-  console.log("hard");
+  difficulty = "hard"
+  chooseCraft()
   putItemDown();
   timer(20);
 }
+
 
 //drag and drop
 let whereIsItem = {
@@ -228,7 +232,7 @@ function putItemDown(){
     >
 `;
      var item3 =`
-    <img class="item" id="3" src="easy_ item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
+    <img class="item" id="3" src="easy_item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
     style="position: absolute; left: ${whereIsItem3.x}px; top: ${whereIsItem3.y}px;"
     onmousedown="dragStart(3)"
     onmouseup = dragEnd()
@@ -236,7 +240,7 @@ function putItemDown(){
     >
 `;
      var item4 =`
-    <img class="item" id="4" src="easy_ item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
+    <img class="item" id="4" src="easy_item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
     style="position: absolute; left: ${whereIsItem4.x}px; top: ${whereIsItem4.y}px;"
     onmousedown="dragStart(4)"
     onmouseup = dragEnd()
@@ -244,7 +248,7 @@ function putItemDown(){
     >
 `;
      var item5 =`
-    <img class="item" id="5" src="easy_ item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
+    <img class="item" id="5" src="easy_item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
     style="position: absolute; left: ${whereIsItem5.x}px; top: ${whereIsItem5.y}px;"
     onmousedown="dragStart(5)"
     onmouseup = dragEnd()
@@ -371,14 +375,19 @@ function timer(secund){
 //   } 
 // }
 
-let itemList = new Array(9).fill(null); 
+let itemList = new Array(9).fill(null);
+let craftedItemList = null;
+
 
 function updateCraftingList() {
   let craftingGrid = document.querySelectorAll("#x33rect .cell"); 
   let images = document.querySelectorAll("img"); 
 
+
   craftingGrid.forEach((cell, index) => {
       let cellRect = cell.getBoundingClientRect();
+
+      let itemFound = false; 
 
       images.forEach(img => {
           let imgRect = img.getBoundingClientRect();
@@ -390,10 +399,68 @@ function updateCraftingList() {
               imgCenterX > cellRect.left && imgCenterX < cellRect.right &&
               imgCenterY > cellRect.top && imgCenterY < cellRect.bottom
           ) {
-              itemList[index] = img.src.split('/').pop().replace("png",""); 
+              itemList[index] = img.src.split('/').pop().replace(".png", ""); 
+              itemFound = true; 
           }
       });
-  });
 
-  console.log(itemList)
+      if (!itemFound) {
+          itemList[index] = null;
+      }
+  });
+  checkCorrectCraft()
 }
+
+
+function chooseCraft() {
+  const craftableItems = window.items_data.filter(item => 
+    item.craftable && item.difficulty === difficulty);
+
+
+  if (craftableItems.length > 0) {
+    const randomIndex = Math.floor(Math.random() * craftableItems.length);
+    const randomItem = craftableItems[randomIndex];
+    craftedItemList = randomItem.recipe;
+    document.getElementById("x11rect").style.background = `url(${difficulty}_item/${randomItem.picture}.png)`;
+    document.getElementById("x11rect").style.backgroundRepeat = "no-repeat";
+    document.getElementById("x11rect").style.backgroundSize = "7rem"
+  } else {
+    console.log("Nincs item.");
+  }
+
+}
+
+function checkCorrectCraft() {
+  let isCraftCorrect = false;
+
+  // Minden receptet végignézünk
+  for (let i = 0; i < craftedItemList.length; i++) {
+    let recipe = craftedItemList[i];
+
+    // Ellenőrizzük, hogy az adott recept megfelel-e az itemList-nek
+    let isRecipeMatch = true;
+
+    // Mindegyik cellát összehasonlítjuk
+    for (let j = 0; j < recipe.length; j++) {
+      if (recipe[j] !== itemList[j]) {
+        console.log(recipe , itemList)
+        isRecipeMatch = false;
+        break;
+      }
+    }
+
+    // Ha bármelyik recept megegyezik, akkor a crafting sikerült
+    if (isRecipeMatch) {
+      isCraftCorrect = true;
+      break;
+    }
+  }
+
+  if (isCraftCorrect) {
+    console.log("Hurrá, a crafting sikerült!");
+  } else {
+    console.log("A crafting nem helyes.");
+  }
+}
+
+

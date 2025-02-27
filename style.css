@@ -163,9 +163,9 @@ body {
     align-items: center;
 }
 
-.cell-container > div:hover {
+/* .cell-container > div:hover {
     background-color: rgb(163, 163, 163);
-}
+} */
 
 .cell-container-1x9{
     position: absolute;
