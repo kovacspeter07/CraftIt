@@ -145,17 +145,17 @@ function changeBackground() {
 //put the changed stats in these functions
 function easyPressed() {
   console.log("easy");
-  preSpawn();
+  putItemDown();
   timer(60);
 }
 function mediumPressed() {
   console.log("medium");
-  preSpawn();
+  putItemDown();
   timer(40);
 }
 function hardPressed() {
   console.log("hard");
-  preSpawn();
+  putItemDown();
   timer(20);
 }
 
@@ -177,10 +177,6 @@ let whereIsItem1 = {
     x: undefined,
     y: undefined,
   };
-
-function preSpawn() {
-    putItemDown();
-}
 //This function is going to have to be changed further in the development
 function putItemDown(){
     if (whereIsItem.id == 1){
@@ -210,7 +206,7 @@ function putItemDown(){
     
     //the cell is going to have to be randomized
   var item = item1 + item2
-  document.getElementById('test').innerHTML = item;
+  document.getElementById('items').innerHTML = item;
 }
 
 function dragStart(num){
