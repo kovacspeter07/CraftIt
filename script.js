@@ -1,6 +1,3 @@
-import { items } from "./data.js";
-
-
 //play button changing the screen to the difficulty selection
 document.getElementById("play-button").addEventListener("click", function () {
   showMenu("difficulty-menu");
@@ -152,13 +149,10 @@ function easyPressed() {
 }
 function mediumPressed() {
   console.log("medium")
-  putItemDown()
 }
 function hardPressed() {
   console.log("hard")
-  putItemDown()
 }
-
 
 //drag and drop
 let whereIsItem = {
@@ -166,34 +160,33 @@ let whereIsItem = {
   y: undefined,
   isDragged: false,
 };
-
 //This function is going to have to be changed further in the development
 function putItemDown(){
   const item =`
       <img class="item" id="stick" src="item/stick.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
       style="position: absolute; left: ${whereIsItem.x}px; top: ${whereIsItem.y}px;"
-      onmousedown = "dragStart()"
-      onmouseup = dragEnd()
-      onmousemove = dragMouseMove(window.event)
+      onmousedown="dobozDragStart()"
+      onmouseup = dobozDragEnd()
+      onmousemove = dobozMouseMove(window.event)
       >
   `;
   //the cell is going to have to be randomized
-  document.getElementById('teszt').innerHTML = item;
+  document.getElementById('test').innerHTML = item;
 }
 
-function dragStart(){
+function dobozDragStart(){
   whereIsItem.isDragged = true
   putItemDown();
 }
 
-function dragEnd(){
+function dobozDragEnd(){
   whereIsItem.isDragged = false
   whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
   whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
   putItemDown()
 }
 
-function dragMouseMove(event){
+function dobozMouseMove(event){
   if(whereIsItem.isDragged){
     const box = event.target.closest(".item")
     if (!box){
@@ -205,10 +198,3 @@ function dragMouseMove(event){
   }
 
 }
-
-function getRandom() {
-  const craftableItems = items.filter(item => item.craftable);
-  const randomIndex = Math.floor(Math.random() * craftableItems.length);
-  return craftableItems[randomIndex]
-}
-
