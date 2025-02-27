@@ -220,10 +220,10 @@ function x39selected(){
   whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
 }
 function x33selected(){
-  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
-  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+  whereIsItem.x = document.getElementById("cell-crafting-1").getBoundingClientRect().left;
+  whereIsItem.y = document.getElementById("cell-crafting-1").getBoundingClientRect().top;
 }
 function x19selected(){
-  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
-  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+  whereIsItem.x = document.getElementById("cell-1").getBoundingClientRect().left;
+  whereIsItem.y = document.getElementById("cell-1").getBoundingClientRect().top;
 }
