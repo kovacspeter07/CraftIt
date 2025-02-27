@@ -159,6 +159,7 @@ let whereIsItem = {
   x: undefined,
   y: undefined,
   isDragged: false,
+  lastposition: undefined,
 };
 //This function is going to have to be changed further in the development
 function putItemDown(){
@@ -213,6 +214,10 @@ function gridSelect(){
   else if (itemrect.top > x19rect.top - 50 && itemrect.bottom < x19rect.bottom + 50 && itemrect.left > x19rect.left - 50 && itemrect.right < x19rect.right + 50){
     x19selected();
   }
+  else {
+    whereIsItem.x = whereIsItem.lastposition.left
+    whereIsItem.y = whereIsItem.lastposition.top
+  }
 }
 
 function x39selected(){
@@ -233,6 +238,7 @@ function whichSquare(x, y, cellID){
     if (itemrect.top > cellrect.top - 50 && itemrect.bottom < cellrect.bottom + 50 && itemrect.left > cellrect.left - 50 && itemrect.right < cellrect.right + 50){
       whereIsItem.x = document.getElementById(locCellID).getBoundingClientRect().left;
       whereIsItem.y = document.getElementById(locCellID).getBoundingClientRect().top;
+      whereIsItem.lastposition = cellrect;
       break;
     }
   } 
