@@ -198,18 +198,40 @@ function dragMouseMove(event){
 
 }
 
+//chooses which grid overlaps
 function gridSelect(){
   var itemrect = document.getElementById("stick").getBoundingClientRect()
-  var x11rect = document.getElementById("stick").getBoundingClientRect()
-  var x33rect = document.getElementById("stick").getBoundingClientRect()
+  var x11rect = document.getElementById("x11rect").getBoundingClientRect()
   var x39rect = document.getElementById("x39rect").getBoundingClientRect()
-  var x19rect = document.getElementById("stick").getBoundingClientRect()
-  if (itemrect.top > x39rect.top - 50 && itemrect.bottom < x39rect.bottom + 50 && itemrect.left > x39rect.left - 50 && itemrect.right < x39rect.right + 50){
+  var x33rect = document.getElementById("x33rect").getBoundingClientRect()
+  var x19rect = document.getElementById("x19rect").getBoundingClientRect()
+  if (itemrect.top > x11rect.top - 50 && itemrect.bottom < x11rect.bottom + 50 && itemrect.left > x11rect.left - 50 && itemrect.right < x11rect.right + 50){
+    x11selected()
+  }
+  else if (itemrect.top > x39rect.top - 50 && itemrect.bottom < x39rect.bottom + 50 && itemrect.left > x39rect.left - 50 && itemrect.right < x39rect.right + 50){
     x39selected()
+  }
+  else if (itemrect.top > x33rect.top - 50 && itemrect.bottom < x33rect.bottom + 50 && itemrect.left > x33rect.left - 50 && itemrect.right < x33rect.right + 50){
+    x33selected()
+  }
+  else if (itemrect.top > x19rect.top - 50 && itemrect.bottom < x19rect.bottom + 50 && itemrect.left > x19rect.left - 50 && itemrect.right < x19rect.right + 50){
+    x19selected()
   }
 }
 
+function x11selected(){
+  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
+  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+}
 function x39selected(){
   whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
-    whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+}
+function x33selected(){
+  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
+  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
+}
+function x19selected(){
+  whereIsItem.x = document.getElementById("cell-10").getBoundingClientRect().left;
+  whereIsItem.y = document.getElementById("cell-10").getBoundingClientRect().top;
 }
