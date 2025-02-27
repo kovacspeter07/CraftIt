@@ -5,6 +5,7 @@ const items = [
         craftable: true,
         difficulty: "easy",
         recipe: [["iron","iron","","iron","stick","","","stick",""],["","iron","iron","","iron","stick","","","stick"]],
+        cellID: undefined,
     },
     {
         id: 2,
@@ -12,6 +13,7 @@ const items = [
         craftable: false,
         difficulty: "easy",
         recipe: null,
+        cellID: undefined,
     },
     {
         id: 3,
@@ -19,6 +21,7 @@ const items = [
         craftable: true,
         difficulty: "easy",
         recipe: null,
+        cellID: undefined,
     }
 
 ];
