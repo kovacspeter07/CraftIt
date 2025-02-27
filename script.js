@@ -287,6 +287,7 @@ function dragEnd(){
   whereIsItem.isDragged = false;
   gridSelect();
   putItemDown();
+  updateCraftingList()
 }
 
 function dragMouseMove(event){
@@ -369,3 +370,30 @@ function timer(secund){
 //     spawnedItems.cellID = cellID
 //   } 
 // }
+
+let itemList = new Array(9).fill(null); 
+
+function updateCraftingList() {
+  let craftingGrid = document.querySelectorAll("#x33rect .cell"); 
+  let images = document.querySelectorAll("img"); 
+
+  craftingGrid.forEach((cell, index) => {
+      let cellRect = cell.getBoundingClientRect();
+
+      images.forEach(img => {
+          let imgRect = img.getBoundingClientRect();
+        
+          let imgCenterX = imgRect.left + imgRect.width / 2;
+          let imgCenterY = imgRect.top + imgRect.height / 2;
+
+          if (
+              imgCenterX > cellRect.left && imgCenterX < cellRect.right &&
+              imgCenterY > cellRect.top && imgCenterY < cellRect.bottom
+          ) {
+              itemList[index] = img.src.split('/').pop().replace("png",""); 
+          }
+      });
+  });
+
+  console.log(itemList)
+}
