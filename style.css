@@ -165,7 +165,7 @@ body {
 
 .cell-container > div:hover {
     background-color: rgb(163, 163, 163);
-  }
+}
 
 .cell-container-1x9{
     position: absolute;
@@ -178,4 +178,8 @@ body {
 
 .item{
     width: 7.64vh;
+}
+.timer{
+    width: 40vw;
+    text-shadow: none;
 }

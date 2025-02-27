@@ -63,7 +63,7 @@ const background_variants = [
     layer_2: "grass_block_side",
     layer_1: "short_grass",
     color:
-      "linear-gradient(180deg, rgba(135,206,235,1) 0%, rgba(139,69,19,1) 100%)",
+      "linear-gradient(180deg, rgba(135,206,235,1) 0%, rgb(19, 71, 139) 100%)",
   },
   {
     title: "Sand",
@@ -145,13 +145,18 @@ function changeBackground() {
 //put the changed stats in these functions
 function easyPressed() {
   console.log("easy");
-  putItemDown()
+  putItemDown();
+  timer(60);
 }
 function mediumPressed() {
   console.log("medium");
+  putItemDown();
+  timer(40);
 }
 function hardPressed() {
   console.log("hard");
+  putItemDown();
+  timer(20);
 }
 
 //drag and drop
@@ -242,4 +247,16 @@ function whichSquare(x, y, cellID){
       break;
     }
   } 
+}
+
+function timer(secund){
+  var sec =secund;
+  var timer = setInterval(function(){
+      document.getElementById('TimerDisplay').innerHTML=sec;
+      sec--;
+      if (sec < 0) {
+          clearInterval(timer);
+          window.location.reload()
+      }
+  }, 1000);
 }
