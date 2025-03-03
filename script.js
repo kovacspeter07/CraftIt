@@ -172,56 +172,24 @@ let whereIsItem = {
   lastposition: undefined,
 };
 
-let whereIsItem1 = {
-    x: undefined,
-    y: undefined,
-  };
-
-  let whereIsItem2 = {
-    x: undefined,
-    y: undefined,
-  };
-  let whereIsItem3 = {
-    x: undefined,
-    y: undefined,
-  };
-  let whereIsItem4 = {
-    x: undefined,
-    y: undefined,
-  };
-  let whereIsItem5 = {
-    x: undefined,
-    y: undefined,
-  };
+  const whereIsItemLeft = [];
+  const whereIsItemTop = [];
 
   const lastpositionsLeft = [];
   const lastpositionsTop = [];
 
 //This function is going to have to be changed further in the development
 function putItemDown(){
-    if (whereIsItem.id == 1){
-        whereIsItem1.x = whereIsItem.x;
-        whereIsItem1.y = whereIsItem.y;
+  for (let i = 1; i < 6; i++) {
+    if (whereIsItem.id == i){
+      whereIsItemLeft[i] = whereIsItem.x;
+      whereIsItemTop[i] = whereIsItem.y;
+      break;
     }
-    if (whereIsItem.id == 2){
-        whereIsItem2.x = whereIsItem.x;
-        whereIsItem2.y = whereIsItem.y;
-    }
-    if (whereIsItem.id == 3){
-      whereIsItem3.x = whereIsItem.x;
-      whereIsItem3.y = whereIsItem.y;
-    }
-    if (whereIsItem.id == 4){
-      whereIsItem4.x = whereIsItem.x;
-      whereIsItem4.y = whereIsItem.y;
-    }
-    if (whereIsItem.id == 5){
-      whereIsItem5.x = whereIsItem.x;
-      whereIsItem5.y = whereIsItem.y;
-    }
+  }
     var item1 =`
     <img class="item" id="1" src="item/stick.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
-    style="position: absolute; left: ${whereIsItem1.x}px; top: ${whereIsItem1.y}px;"
+    style="position: absolute; left: ${whereIsItemLeft[1]}px; top: ${whereIsItemTop[1]}px;"
     onmousedown="dragStart(1)"
     onmouseup = dragEnd()
     onmousemove = dragMouseMove(window.event)
@@ -229,7 +197,7 @@ function putItemDown(){
     `;
     var item2 =`
     <img class="item" id="2" src="item/stick.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
-    style="position: absolute; left: ${whereIsItem2.x}px; top: ${whereIsItem2.y}px;"
+    style="position: absolute; left: ${whereIsItemLeft[2]}px; top: ${whereIsItemTop[2]}px;"
     onmousedown="dragStart(2)"
     onmouseup = dragEnd()
     onmousemove = dragMouseMove(window.event)
@@ -237,7 +205,7 @@ function putItemDown(){
 `;
      var item3 =`
     <img class="item" id="3" src="easy_item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
-    style="position: absolute; left: ${whereIsItem3.x}px; top: ${whereIsItem3.y}px;"
+    style="position: absolute; left: ${whereIsItemLeft[3]}px; top: ${whereIsItemTop[3]}px;"
     onmousedown="dragStart(3)"
     onmouseup = dragEnd()
     onmousemove = dragMouseMove(window.event)
@@ -245,7 +213,7 @@ function putItemDown(){
 `;
      var item4 =`
     <img class="item" id="4" src="easy_item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
-    style="position: absolute; left: ${whereIsItem4.x}px; top: ${whereIsItem4.y}px;"
+    style="position: absolute; left: ${whereIsItemLeft[4]}px; top: ${whereIsItemTop[4]}px;"
     onmousedown="dragStart(4)"
     onmouseup = dragEnd()
     onmousemove = dragMouseMove(window.event)
@@ -253,7 +221,7 @@ function putItemDown(){
 `;
      var item5 =`
     <img class="item" id="5" src="easy_item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
-    style="position: absolute; left: ${whereIsItem5.x}px; top: ${whereIsItem5.y}px;"
+    style="position: absolute; left: ${whereIsItemLeft[5]}px; top: ${whereIsItemTop[5]}px;"
     onmousedown="dragStart(5)"
     onmouseup = dragEnd()
     onmousemove = dragMouseMove(window.event)
@@ -261,34 +229,21 @@ function putItemDown(){
 `;
     
     //the cell is going to have to be randomized
-  var item = item1 + item2 + item3 + item4 + item5
+  var item = item1 + item2 + item3 + item4 + item5;
   document.getElementById('items').innerHTML = item;
 }
 
 function dragStart(num){
   whereIsItem.id = num;
-  if (whereIsItem.id == 1){
-    whereIsItem.x = whereIsItem1.x;
-    whereIsItem.y = whereIsItem1.y;
-  }
-  if (whereIsItem.id == 2){
-    whereIsItem.x = whereIsItem2.x;
-    whereIsItem.y = whereIsItem2.y;
-  }
-  if (whereIsItem.id == 3){
-    whereIsItem.x = whereIsItem3.x;
-    whereIsItem.y = whereIsItem3.y;
-  }
-  if (whereIsItem.id == 4){
-    whereIsItem.x = whereIsItem4.x;
-    whereIsItem.y = whereIsItem4.y;
-  }
-  if (whereIsItem.id == 5){
-    whereIsItem.x = whereIsItem5.x;
-    whereIsItem.y = whereIsItem5.y;
+  for (let i = 1; i < 6; i++) {
+    if (num == i){
+      whereIsItem.x = whereIsItemLeft[i];
+      whereIsItem.y = whereIsItemTop[i];
+      break;
+    }
   }
   whereIsItem.isDragged = true;
-  gridSelect(false)
+  gridSelect(false);
   putItemDown();
 }
 
@@ -296,7 +251,7 @@ function dragEnd(){
   whereIsItem.isDragged = false;
   gridSelect(true);
   putItemDown();
-  updateCraftingList()
+  updateCraftingList();
 }
 
 function dragMouseMove(event){
@@ -328,7 +283,7 @@ function gridSelect(end){
     x19selected(end);
   }
   else {
-    snapback()
+    snapback();
   }
 }
 
@@ -337,7 +292,7 @@ function x39selected(end){
     whichSquare(10, 37, "cell-");
   }
   else {
-    lastpositionRefresh(10, 37, "cell-")
+    lastpositionRefresh(10, 37, "cell-");
   }
 }
 function x33selected(end){
@@ -345,7 +300,7 @@ function x33selected(end){
     whichSquare(1, 10, "cell-crafting-");
   }
   else {
-    lastpositionRefresh(1, 10, "cell-crafting-")
+    lastpositionRefresh(1, 10, "cell-crafting-");
   }
 }
 function x19selected(end){
@@ -353,7 +308,7 @@ function x19selected(end){
     whichSquare(1, 10, "cell-");
   }
   else {
-    lastpositionRefresh(1, 10, "cell-")
+    lastpositionRefresh(1, 10, "cell-");
   }
 }
 
@@ -368,12 +323,12 @@ function whichSquare(x, y, cellID){
       lastpositionsLeft[0] = cellrect.left;
       lastpositionsTop[0] = cellrect.top;
       if (collision()){
-        snapback()
+        snapback();
       }
       else {
         whereIsItem.lastposition = cellrect;
       }
-      lastpositionData()
+      lastpositionData();
       break;
     }
   } 
