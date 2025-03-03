@@ -193,6 +193,10 @@ let whereIsItem1 = {
     x: undefined,
     y: undefined,
   };
+
+  const lastpositionsLeft = [];
+  const lastpositionsTop = [];
+
 //This function is going to have to be changed further in the development
 function putItemDown(){
     if (whereIsItem.id == 1){
@@ -284,12 +288,13 @@ function dragStart(num){
     whereIsItem.y = whereIsItem5.y;
   }
   whereIsItem.isDragged = true;
+  gridSelect(false)
   putItemDown();
 }
 
 function dragEnd(){
   whereIsItem.isDragged = false;
-  gridSelect();
+  gridSelect(true);
   putItemDown();
   updateCraftingList()
 }
@@ -308,48 +313,106 @@ function dragMouseMove(event){
 }
 
 //chooses which grid overlaps
-function gridSelect(){
-  var itemrect = document.getElementById(`${whereIsItem.id}`).getBoundingClientRect();
+function gridSelect(end){
+  var itemrect = document.getElementById(whereIsItem.id).getBoundingClientRect();
   var x39rect = document.getElementById("x39rect").getBoundingClientRect();
   var x33rect = document.getElementById("x33rect").getBoundingClientRect();
   var x19rect = document.getElementById("x19rect").getBoundingClientRect();
   if (itemrect.top > x39rect.top - 50 && itemrect.bottom < x39rect.bottom + 50 && itemrect.left > x39rect.left - 50 && itemrect.right < x39rect.right + 50){
-    x39selected();
+    x39selected(end);
   }
   else if (itemrect.top > x33rect.top - 50 && itemrect.bottom < x33rect.bottom + 50 && itemrect.left > x33rect.left - 50 && itemrect.right < x33rect.right + 50){
-    x33selected();
+    x33selected(end);
   }
   else if (itemrect.top > x19rect.top - 50 && itemrect.bottom < x19rect.bottom + 50 && itemrect.left > x19rect.left - 50 && itemrect.right < x19rect.right + 50){
-    x19selected();
+    x19selected(end);
   }
   else {
-    whereIsItem.x = whereIsItem.lastposition.left;
-    whereIsItem.y = whereIsItem.lastposition.top;
+    snapback()
   }
 }
 
-function x39selected(){
-  whichSquare(10, 37, "cell-");
+function x39selected(end){
+  if (end){
+    whichSquare(10, 37, "cell-");
+  }
+  else {
+    lastpositionRefresh(10, 37, "cell-")
+  }
 }
-function x33selected(){
-  whichSquare(1, 10, "cell-crafting-");
+function x33selected(end){
+  if (end){
+    whichSquare(1, 10, "cell-crafting-");
+  }
+  else {
+    lastpositionRefresh(1, 10, "cell-crafting-")
+  }
 }
-function x19selected(){
-  whichSquare(1, 10, "cell-");
+function x19selected(end){
+  if (end){
+    whichSquare(1, 10, "cell-");
+  }
+  else {
+    lastpositionRefresh(1, 10, "cell-")
+  }
 }
 
 function whichSquare(x, y, cellID){
   for (let i = x; i < y; i++) {
     let locCellID = cellID + i;
     var cellrect = document.getElementById(locCellID).getBoundingClientRect();
-    var itemrect = document.getElementById(`${whereIsItem.id}`).getBoundingClientRect();
+    var itemrect = document.getElementById(whereIsItem.id).getBoundingClientRect();
     if (itemrect.top > cellrect.top - 50 && itemrect.bottom < cellrect.bottom + 50 && itemrect.left > cellrect.left - 50 && itemrect.right < cellrect.right + 50){
       whereIsItem.x = document.getElementById(locCellID).getBoundingClientRect().left;
       whereIsItem.y = document.getElementById(locCellID).getBoundingClientRect().top;
-      whereIsItem.lastposition = cellrect;
+      lastpositionsLeft[0] = cellrect.left;
+      lastpositionsTop[0] = cellrect.top;
+      if (collision()){
+        snapback()
+      }
+      else {
+        whereIsItem.lastposition = cellrect;
+      }
+      lastpositionData()
       break;
     }
   } 
+}
+
+function collision(){
+  for (let i = 1; i < 6; i++){
+    if (i != whereIsItem.id){
+      if (lastpositionsLeft[0] == lastpositionsLeft[i] && lastpositionsTop[0] == lastpositionsTop[i]){
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function lastpositionData(){
+  for (let i = 1; i < 6; i++){
+    if (i == whereIsItem.id){
+      lastpositionsLeft[i] = whereIsItem.lastposition.left;
+      lastpositionsTop[i] = whereIsItem.lastposition.top;
+    }
+  }
+}
+
+function lastpositionRefresh(x, y, cellID){
+  for (let i = x; i < y; i++) {
+    let locCellID = cellID + i;
+    var cellrect = document.getElementById(locCellID).getBoundingClientRect();
+    var itemrect = document.getElementById(whereIsItem.id).getBoundingClientRect();
+    if (itemrect.top > cellrect.top - 50 && itemrect.bottom < cellrect.bottom + 50 && itemrect.left > cellrect.left - 50 && itemrect.right < cellrect.right + 50){
+      whereIsItem.lastposition = cellrect;
+    } 
+  }
+}
+
+function snapback(){
+  whereIsItem.x = whereIsItem.lastposition.left;
+  whereIsItem.y = whereIsItem.lastposition.top;
 }
 
 function timer(secund){
