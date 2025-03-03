@@ -309,7 +309,7 @@ function dragMouseMove(event){
 
 //chooses which grid overlaps
 function gridSelect(){
-  var itemrect = document.getElementById(`${whereIsItem.id}`).getBoundingClientRect();
+  var itemrect = document.getElementById(whereIsItem.id).getBoundingClientRect();
   var x39rect = document.getElementById("x39rect").getBoundingClientRect();
   var x33rect = document.getElementById("x33rect").getBoundingClientRect();
   var x19rect = document.getElementById("x19rect").getBoundingClientRect();
@@ -323,8 +323,7 @@ function gridSelect(){
     x19selected();
   }
   else {
-    whereIsItem.x = whereIsItem.lastposition.left;
-    whereIsItem.y = whereIsItem.lastposition.top;
+    snapback()
   }
 }
 
@@ -342,7 +341,7 @@ function whichSquare(x, y, cellID){
   for (let i = x; i < y; i++) {
     let locCellID = cellID + i;
     var cellrect = document.getElementById(locCellID).getBoundingClientRect();
-    var itemrect = document.getElementById(`${whereIsItem.id}`).getBoundingClientRect();
+    var itemrect = document.getElementById(whereIsItem.id).getBoundingClientRect();
     if (itemrect.top > cellrect.top - 50 && itemrect.bottom < cellrect.bottom + 50 && itemrect.left > cellrect.left - 50 && itemrect.right < cellrect.right + 50){
       whereIsItem.x = document.getElementById(locCellID).getBoundingClientRect().left;
       whereIsItem.y = document.getElementById(locCellID).getBoundingClientRect().top;
@@ -350,6 +349,11 @@ function whichSquare(x, y, cellID){
       break;
     }
   } 
+}
+
+function snapback(){
+  whereIsItem.x = whereIsItem.lastposition.left;
+  whereIsItem.y = whereIsItem.lastposition.top;
 }
 
 function timer(secund){
