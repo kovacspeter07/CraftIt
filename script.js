@@ -124,23 +124,6 @@ function changeBackground() {
   layer_3.style.backgroundSize = "contain";
 }
 
-// grid layout
-// function calculateGridPosition(){
-//     var picture = document.getElementById('crafting_img');
-//     var cells = document.getElementById('cell-container');
-//     var distance_top = picture.offsetTop;
-//     var distance_left = picture.offsetLeft;
-//     cells.style.marginTop = distance_top + "px";
-//     cells.style.marginLeft = distance_left;
-//     console.log(distance_left)
-// }
-
-// function reportWindowSize() {
-//     calculateGridPosition()
-//   }
-  
-//   window.onresize = reportWindowSize;
-
 // changing the difficulty
 //put the changed stats in these functions
 let difficulty = "easy"
@@ -178,7 +161,7 @@ let whereIsItem = {
   const lastpositionsLeft = [];
   const lastpositionsTop = [];
 
-//This function is going to have to be changed further in the development
+// if you randomize the spawned items make a new step here between the button press and the item putdown. 
 function putItemDown(){
   for (let i = 1; i < 6; i++) {
     if (whereIsItem.id == i){
@@ -228,7 +211,6 @@ function putItemDown(){
     >
 `;
     
-    //the cell is going to have to be randomized
   var item = item1 + item2 + item3 + item4 + item5;
   document.getElementById('items').innerHTML = item;
 }
@@ -312,6 +294,7 @@ function x19selected(end){
   }
 }
 
+//chooses which square overlaps
 function whichSquare(x, y, cellID){
   for (let i = x; i < y; i++) {
     let locCellID = cellID + i;
@@ -334,6 +317,7 @@ function whichSquare(x, y, cellID){
   } 
 }
 
+//checks if there is any other item in the chosen square
 function collision(){
   for (let i = 1; i < 6; i++){
     if (i != whereIsItem.id){
@@ -345,6 +329,7 @@ function collision(){
   return false;
 }
 
+//stores the data of thelast positions
 function lastpositionData(){
   for (let i = 1; i < 6; i++){
     if (i == whereIsItem.id){
@@ -354,6 +339,7 @@ function lastpositionData(){
   }
 }
 
+//refreshes last known positions
 function lastpositionRefresh(x, y, cellID){
   for (let i = x; i < y; i++) {
     let locCellID = cellID + i;
@@ -365,6 +351,7 @@ function lastpositionRefresh(x, y, cellID){
   }
 }
 
+//snaps back the item to the last position
 function snapback(){
   whereIsItem.x = whereIsItem.lastposition.left;
   whereIsItem.y = whereIsItem.lastposition.top;
@@ -381,17 +368,6 @@ function timer(secund){
       }
   }, 1000);
 }
-
-// let spawnedItems = {
-//   cellID: undefined,
-//   id: "stick",
-// };
-
-// function changeSpawnedItems(cellID, id) {
-//   for (let i = "stick"; i == "stick";) {
-//     spawnedItems.cellID = cellID
-//   } 
-// }
 
 let itemList = new Array(9).fill(null);
 let craftedItemList = null;
