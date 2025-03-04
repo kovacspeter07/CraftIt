@@ -389,7 +389,7 @@ const items_data = [
     ],
   },
 
-  /**Medium (10)*/
+  /**Medium (30)*/
   {
     picture: "arrow",
     craftable: true,
@@ -483,8 +483,8 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["paper","paper","oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null,null],
-      ["paper","paper","oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null,null],
+      ["feather","feather",null,"oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null],
+      [null,"feather","feather",null,"oak_planks", "oak_planks",null, "oak_planks", "oak_planks"],
     ],
   },
   {
@@ -492,8 +492,8 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["paper","paper","oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null,null],
-      ["paper","paper","oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null,null],
+      ["iron","iron",null,"oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null],
+      [null,"iron","iron",null,"oak_planks", "oak_planks", null,"oak_planks", "oak_planks"],
     ],
   },
   {
@@ -501,21 +501,21 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["paper","paper","oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null,null],
-      ["paper","paper","oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null,null],
+      ["paper","paper",null,"oak_planks", "oak_planks",null, "oak_planks", "oak_planks", null],
+      [null,"paper","paper",null,"oak_planks", "oak_planks",null, "oak_planks", "oak_planks"],
     ],
   },
   {
     picture: "magma_cream",
     craftable: true,
-    difficulty: "easy",
+    difficulty: "medium",
     recipe: [
-      ["stick", null, null,"cobblestone",null , null,null, null,null],
-      [null,"stick",null,null ,"cobblestone", null,null, null,null],
-      [ null, null,"stick",null , null,"cobblestone", null,null, null],
-      [null, null,null,"stick", null, null,"cobblestone",null , null],
-      [null, null,null,null,"stick",null,null ,"cobblestone", null],
-      [null,null, null,null, null,"stick",null , null,"cobblestone"],
+      ["slime_ball", "blaze_powder", null,null,null , null,null, null,null],
+      [null,"slime_ball", "blaze_powder", null,null , null,null, null,null],
+      [null,null,null ,"slime_ball", "blaze_powder",  null,null, null,null],
+      [null,null,null , null,"slime_ball", "blaze_powder", null, null,null],
+      [null,null,null , null,null, null,"slime_ball", "blaze_powder", null],
+      [null,null,null , null,null, null,null,"slime_ball", "blaze_powder"],
     ],
   },
   { 
@@ -523,7 +523,7 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["gold","gold", "gold", "gold", "apple", "gold", "gold","gold", "gold"],
+      ["stick",null, "stick", "stick", "stick", "stick", "stick",null, "stick"],
     ],
   },
   { 
@@ -531,7 +531,7 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["gold","gold", "gold", "gold", "apple", "gold", "gold","gold", "gold"],
+      ["iron",null, "iron", "iron", "stick", "iron", "iron",null, "iron"],
     ],
   },
   { 
@@ -539,7 +539,7 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["gold","gold", "gold", "gold", "apple", "gold", "gold","gold", "gold"],
+      ["gold",null, "gold", "gold", "stick", "gold", "gold","redstone", "gold"],
     ],
   },
   { 
@@ -547,7 +547,7 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["gold","gold", "gold", "gold", "apple", "gold", "gold","gold", "gold"],
+      ["oak_planks","oak_planks", "oak_planks", "cobblestone", "iron", "cobblestone", "cobblestone","redstone", "cobblestone"],
     ],
   },
   { 
@@ -555,7 +555,12 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["gold","gold", "gold", "gold", "apple", "gold", "gold","gold", "gold"],
+      ["slime_ball", null, null,"piston",null , null,null, null,null],
+      [null,"slime_ball",null,null ,"piston", null,null, null,null],
+      [ null, null,"slime_ball",null , null,"piston", null,null, null],
+      [null, null,null,"slime_ball", null, null,"piston",null , null],
+      [null, null,null,null,"slime_ball",null,null ,"piston", null],
+      [null,null, null,null, null,"slime_ball",null , null,"piston"]
     ],
   },
   { 
@@ -563,13 +568,106 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      ["gold","gold", "gold", "gold", "apple", "gold", "gold","gold", "gold"],
+      [null,"amethyst_shard",null,null,"copper",null,null,"copper",null],
+      ["amethyst_shard", null,null,"copper", null,null,"copper",null,null],
+      [null,null,"amethyst_shard", null,null, "copper",null,null,"copper"],,
     ],
   },
-
-  
-
+  { 
+    picture: "compass",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      [null,"iron",null,"iron","redstone","iron",null,"iron",null],
+    ],
+  },
+  { 
+    picture: "clock",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      [null,"gold",null,"gold","redstone","gold",null,"gold",null],
+    ],
+  },
+  { 
+    picture: "blast_furnace",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["iron","iron", "iron", "iron", "furnace", "iron", "smooth_stone","smooth_stone", "smooth_stone"],
+    ],
+  },
+  { 
+    picture: "smoker",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      [null,"oak_log",null,"oak_log","furnace","oak_log",null,"oak_log",null],
+    ],
+  },
+  { 
+    picture: "tnt",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["sand","gunpowder", "sand","gunpowder", "sand","gunpowder", "sand","gunpowder", "sand"],
+    ],
+  },
+  { 
+    picture: "bread",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["wheat","wheat", "wheat", null, null, null, null,null, null],
+      [null, null, null,"wheat","wheat", "wheat", null,null, null]
+      [null, null, null, null,null, null,"wheat","wheat", "wheat" ]
+    ],
+  },
+  { 
+    picture: "enchanting_table",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      [null,"book", null, "diamond", "obsidian", "diamond", "obsidian","obsidian", "obsidian"],
+    ],
+  },
+  { 
+    picture: "glass_bottle",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["glass", null, "glass", null, "glass", null,null, null,null],
+      [null,null, null, "glass", null, "glass", null, "glass",null],
+    ],
+  },
+  { 
+    picture: "dried_kelp_block",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["dried_kelp","dried_kelp", "dried_kelp", "dried_kelp","dried_kelp", "dried_kelp", "dried_kelp","dried_kelp", "dried_kelp"],
+    ],
+  },
+  { 
+    picture: "bricks",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["brick","brick", null, "brick","brick", null, null,null, null],
+      [ null,null, null,"brick","brick", null, "brick","brick", null],
+      [ null,"brick","brick", null, "brick","brick", null,null, null],
+      [ null,null, null,null ,"brick", "brick", null,"brick","brick"],
+    ],
+  },
   /**Hard*/
+  { 
+    picture: "crafter",
+    craftable: true,
+    difficulty: "hard",
+    recipe: [
+      ["iron","iron", "iron", "iron", "crafting_table", "iron", "redstone","dropper", "redstone"],
+    ],
+  },
   /**ingredients*/ 
   {
     picture: "coal",
@@ -591,6 +689,12 @@ const items_data = [
   },
   {
     picture: "gold",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "redstone",
     craftable: false,
     difficulty:undefined,
     recipe: null,
@@ -620,6 +724,12 @@ const items_data = [
     recipe: null,
   },
   {
+    picture: "smooth_stone",
+    craftable: false,
+    difficulty: undefined,
+    recipe: null,
+  },
+  {
     picture: "oak_planks",
     craftable: false,
     difficulty: undefined,
@@ -632,7 +742,31 @@ const items_data = [
     recipe: null,
   },
   {
+    picture: "obsidian",
+    craftable: false,
+    difficulty: undefined,
+    recipe: null,
+  },
+  {
+    picture: "brick",
+    craftable: false,
+    difficulty: undefined,
+    recipe: null,
+  },
+  {
     picture: "apple",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "wheat",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "dried_kelp",
     craftable: false,
     difficulty:undefined,
     recipe: null,
@@ -650,7 +784,19 @@ const items_data = [
     recipe: null,
   },
   {
+    picture: "gunpowder",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
     picture: "turtle_scute",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "amethyst_shard",
     craftable: false,
     difficulty:undefined,
     recipe: null,
@@ -711,6 +857,12 @@ const items_data = [
   },
   {
     picture: "leather",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "glass",
     craftable: false,
     difficulty:undefined,
     recipe: null,
