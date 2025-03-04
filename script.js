@@ -161,6 +161,7 @@ let whereIsItem = {
   const lastpositionsLeft = [];
   const lastpositionsTop = [];
 
+  //generates position at the start
 function generatePosition(){
   for (let i = 1; i < 37; i++) {
     var id = "cell-" + i;
@@ -173,7 +174,7 @@ function generatePosition(){
   putItemDown(false)
 }
 
-// if you randomize the spawned items make a new step here between the button press and the item putdown. 
+// randomize the img src-s to make random items. 
 function putItemDown(notStart){
   if (notStart){
     for (let i = 1; i < 37; i++) {
