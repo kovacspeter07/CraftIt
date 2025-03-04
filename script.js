@@ -63,7 +63,7 @@ const background_variants = [
     layer_2: "grass_block_side",
     layer_1: "short_grass",
     color:
-      "linear-gradient(180deg, rgba(135,206,235,1) 0%, rgb(19, 71, 139) 100%)",
+      "linear-gradient(180deg, rgba(135,206,235,1) 0%, rgb(16,107,187,1) 100%)",
   },
   {
     title: "Sand",
