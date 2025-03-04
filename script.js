@@ -128,20 +128,20 @@ function changeBackground() {
 //put the changed stats in these functions
 let difficulty = "easy"
 function easyPressed() {
-  putItemDown();
+  generatePosition();
   chooseCraft()
   timer(60);
 }
 function mediumPressed() {
   difficulty = "medium"
   chooseCraft()
-  putItemDown();
+  generatePosition();
   timer(40);
 }
 function hardPressed() {
   difficulty = "hard"
   chooseCraft()
-  putItemDown();
+  generatePosition();
   timer(20);
 }
 
@@ -161,13 +161,27 @@ let whereIsItem = {
   const lastpositionsLeft = [];
   const lastpositionsTop = [];
 
-// if you randomize the spawned items make a new step here between the button press and the item putdown. 
-function putItemDown(){
+function generatePosition(){
   for (let i = 1; i < 37; i++) {
-    if (whereIsItem.id == i){
-      whereIsItemLeft[i] = whereIsItem.x;
-      whereIsItemTop[i] = whereIsItem.y;
-      break;
+    var id = "cell-" + i;
+    var position = document.getElementById(id).getBoundingClientRect();
+    whereIsItemLeft[i] = position.left;
+    whereIsItemTop[i] = position.top;
+    lastpositionsLeft[i] = position.left;
+    lastpositionsTop[i] = position.top;
+  }
+  putItemDown(false)
+}
+
+// if you randomize the spawned items make a new step here between the button press and the item putdown. 
+function putItemDown(notStart){
+  if (notStart){
+    for (let i = 1; i < 37; i++) {
+      if (whereIsItem.id == i){
+        whereIsItemLeft[i] = whereIsItem.x;
+        whereIsItemTop[i] = whereIsItem.y;
+        break;
+      }
     }
   }
     var item1 =`
@@ -474,13 +488,13 @@ function dragStart(num){
   }
   whereIsItem.isDragged = true;
   gridSelect(false);
-  putItemDown();
+  putItemDown(true);
 }
 
 function dragEnd(){
   whereIsItem.isDragged = false;
   gridSelect(true);
-  putItemDown();
+  putItemDown(true);
   updateCraftingList();
 }
 
@@ -492,7 +506,7 @@ function dragMouseMove(event){
     }
     whereIsItem.x = document.getElementById("crafting_img").offsetLeft + event.clientX -box.offsetWidth /2;
     whereIsItem.y = document.getElementById("crafting_img").offsetTop + event.clientY - box.offsetHeight /2;
-    putItemDown();
+    putItemDown(true);
   }
 
 }
