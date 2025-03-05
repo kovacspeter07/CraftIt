@@ -466,7 +466,7 @@ function putItemDown(notStart){
     >
 `;
      var item36 =`
-    <img class="item" id="36" src="easy_item/iron.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
+    <img class="item" id="36" src="easy_item/torch.png" ${whereIsItem.isDragged? "grabbed": "not-grabbed"}"
     style="position: absolute; left: ${whereIsItemLeft[36]}px; top: ${whereIsItemTop[36]}px;"
     onmousedown="dragStart(36)"
     onmouseup = dragEnd()
@@ -635,7 +635,7 @@ function timer(secund){
 let itemList = new Array(9).fill(null);
 let craftedItemList = null;
 
-
+// monitors 3*3 crafting bench by checking imgs position
 function updateCraftingList() {
   let craftingGrid = document.querySelectorAll("#x33rect .cell"); 
   let images = document.querySelectorAll("img"); 
@@ -668,7 +668,7 @@ function updateCraftingList() {
   checkCorrectCraft()
 }
 
-
+// chooses a random craftable item
 function chooseCraft() {
   const craftableItems = window.items_data.filter(item => 
     item.craftable && item.difficulty === difficulty);
@@ -689,6 +689,7 @@ function chooseCraft() {
 
 }
 
+// check if the craft is correct by checking the recipie
 function checkCorrectCraft() {
   let isCraftCorrect = false;
 
@@ -718,3 +719,29 @@ function checkCorrectCraft() {
 }
 
 
+let randomFillerItemList = new Array(36).fill(null);
+randomFillerItemList = fillRandomFillerList()
+
+//getting unique ingridients
+function getIngredients(recipe) {
+  let ingredientCount = {};
+
+  recipe.forEach(row => {
+      let uniqueInRow = new Set(row.filter(item => item));
+      
+      uniqueInRow.forEach(item => {
+          ingredientCount[item] = (ingredientCount[item] || 0) + 1;
+      });
+  });
+
+  return ingredientCount;
+}
+
+function fillRandomFillerList() {
+  let availablePictures = window.items_data.map(item => item.picture); // Extract picture names
+  return randomFillerItemList.map(slot => 
+      slot !== null ? slot : availablePictures[Math.floor(Math.random() * availablePictures.length)]
+  );
+}
+
+console.log(randomFillerItemList)
