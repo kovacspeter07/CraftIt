@@ -903,6 +903,7 @@ function snapback() {
   whereIsItem.y = whereIsItem.lastposition.top;
 }
 
+//timer
 function timer(secund) {
   var sec = secund;
   var timer = setInterval(function () {
