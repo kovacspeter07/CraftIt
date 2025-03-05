@@ -838,7 +838,7 @@ const items_data = [
     ],
   },
   { 
-    picture: "sea_lanter",
+    picture: "sea_lantern",
     craftable: true,
     difficulty: "hard",
     recipe: [
