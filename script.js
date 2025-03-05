@@ -52,11 +52,15 @@ document
     showMenu("settings-menu");
   });
 
-document
-  .getElementById("background-button")
-  .addEventListener("click", function () {
-    changeBackground();
-  });
+
+
+document.getElementById("background-button").addEventListener( "click", function () {
+  changeBackground();
+});
+document.getElementById("music-button").addEventListener( "click", function () {
+  changeMusic();
+});
+
 
 ///Background styles
 var background_index = 0;
@@ -127,14 +131,70 @@ function changeBackground() {
   layer_3.style.background = `url(background/${background_variants[background_index].layer_3}.png)`;
   layer_3.style.backgroundSize = "contain";
 }
+// Music
+const musics = [
+  {
+    title: "Otherside",
+    disc:"",
+    song: "otherside.mp3"
+  },
+  {
+    title: "Pigstep",
+    disc: "",
+    song: "pigstep.mp3"
+  },
+  {
+    title: "Creator",
+    disc: "",
+    song: "creator.mp3",
+  },
+  {
+    title: "Aria Math",
+    disc: "",
+    song: "aria_math.mp3",
+  },
+];
+var music_index = 0;
+let audio = new Audio(musics[music_index].song);
+audio.loop = true;
+audio.volume = 0.1;
+let isPlaying = false;
 
+function changeMusic(){
+  if (!isPlaying) 
+  {
+    audio.src = musics[music_index].song;
+    audio.play();
+    isPlaying = true;
+    document.getElementById("music-button").textContent = `Music: ${musics[music_index].title}`;
+  } 
+  else 
+  {
+    audio.pause();
+    music_index = (music_index + 1) % (musics.length + 1);
+    if (music_index < musics.length) 
+      {
+        audio = new Audio(musics[music_index].song);
+        audio.loop = true;
+        audio.volume = 0.25;
+        audio.play();
+        document.getElementById("music-button").textContent = `Music: ${musics[music_index].title}`;
+    } 
+    else 
+    {
+        isPlaying = false;
+        music_index = 0;
+        document.getElementById("music-button").textContent = `Music: None`;
+    }
+  }
+}
 // changing the difficulty
 //put the changed stats in these functions
 let difficulty = "easy";
 function easyPressed() {
   chooseCraft();
   generatePosition();
-  timer(10);
+  timer(60);
 }
 function mediumPressed() {
   difficulty = "medium";

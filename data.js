@@ -128,7 +128,7 @@ const items_data = [
       ],
   },
   {
-    picture: "gold_axe",
+    picture: "golden_axe",
     craftable: true,
     difficulty: "easy",
     recipe: [
@@ -137,7 +137,7 @@ const items_data = [
     ],
   },
   {
-    picture: "gold_hoe",
+    picture: "golden_hoe",
     craftable: true,
     difficulty: "easy",
     recipe: [
@@ -146,7 +146,7 @@ const items_data = [
     ],
   },
   {
-    picture: "gold_sword",
+    picture: "golden_sword",
     craftable: true,
     difficulty: "easy",
     recipe: [
@@ -156,7 +156,7 @@ const items_data = [
     ],
   },
   {
-    picture: "gold_pickaxe",
+    picture: "golden_pickaxe",
     craftable: true,
     difficulty: "easy",
     recipe: [
@@ -164,7 +164,7 @@ const items_data = [
     ],
   },
   {
-    picture: "gold_shovel",
+    picture: "golden_shovel",
     craftable: true,
     difficulty: "easy",
     recipe: [
