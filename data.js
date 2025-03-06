@@ -1378,7 +1378,7 @@ const items_data = [
     recipe: null,
   },
   {
-    picture: "totten_flesh",
+    picture: "rotten_flesh",
     craftable: false,
     difficulty:undefined,
     recipe: null,
