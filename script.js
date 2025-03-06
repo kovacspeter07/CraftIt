@@ -968,7 +968,7 @@ function chooseCraft() {
     craftedItemList = randomItem.recipe;
     document.getElementById(
       "x11rect"
-    ).style.background = `url(${difficulty}_item/${randomItem.picture}.png)`;
+    ).style.background = `url(item/${randomItem.picture}.png)`;
     document.getElementById("x11rect").style.backgroundRepeat = "no-repeat";
     document.getElementById("x11rect").style.backgroundSize = "9vh";
     document.getElementById("x11rect").style.backgroundPosition = "center";
