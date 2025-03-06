@@ -114,14 +114,12 @@ body {
 .tiles-container {
     position: relative;
     image-rendering: pixelated;
-    background-color: rgba(0, 128, 0, 0.288);
     display: flex;
 }
 .crafting_img {
     position: relative;
     height: 80vh;
     width: auto;
-    background-color: rgba(255, 68, 0, 0.452);
 }
 
 /* crafting table area */

@@ -266,19 +266,31 @@ function putItemDown(notStart) {
   }
   var item = ""
   for (let i = 1; i < 37; i++){
-    changedItem = `
-    <img class="item" id="${i}" src="item/${randomFillerItemList[i - 1]}.png" ${
-    whereIsItem.isDragged ? "grabbed" : "not-grabbed"
-  }"
-    style="position: absolute; left: ${whereIsItemLeft[i]}px; top: ${
-    whereIsItemTop[i]
-  }px;"
-    onmousedown="dragStart(${i})"
-    onmouseup = dragEnd()
-    >
-    `;
+    if (i != whereIsItem.id){
+      var changedItem = `
+      <img class="item" id="${i}" src="item/${randomFillerItemList[i - 1]}.png"
+    }"
+      style="position: absolute; left: ${whereIsItemLeft[i]}px; top: ${
+      whereIsItemTop[i]
+    }px;"
+      onmousedown="dragStart(${i})"
+      onmouseup = dragEnd()
+      >
+      `;
     item += changedItem
+    }
   }
+  var draggedItem = `
+      <img class="item" id="${whereIsItem.id}" src="item/${randomFillerItemList[whereIsItem.id - 1]}.png"
+    }"
+      style="position: absolute; left: ${whereIsItemLeft[whereIsItem.id]}px; top: ${
+      whereIsItemTop[whereIsItem.id]
+    }px;"
+      onmousedown="dragStart(${whereIsItem.id})"
+      onmouseup = dragEnd()
+      >
+      `;
+    item += draggedItem
   document.getElementById("items").innerHTML = item;
 }
 
@@ -292,6 +304,7 @@ function dragStart(num) {
     }
   }
   whereIsItem.isDragged = true;
+  document.getElementById(num).style.backgroundColor = "red";
   gridSelect(false);
   putItemDown(true);
 }
