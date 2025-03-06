@@ -10,18 +10,23 @@ document.querySelectorAll(".back-button").forEach((button) => {
   });
 });
 
+let playMenu = false;
+
 document.getElementById("easy-button").addEventListener("click", function () {
   showMenu("play-menu");
+  playMenu = true;
   easyPressed();
 });
 
 document.getElementById("medium-button").addEventListener("click", function () {
   showMenu("play-menu");
+  playMenu = true;
   mediumPressed();
 });
 
 document.getElementById("hard-button").addEventListener("click", function () {
   showMenu("play-menu");
+  playMenu = true;
   hardPressed();
 });
 
@@ -214,6 +219,12 @@ function refresh() {
   chooseCraft();
   generatePosition();
 }
+
+window.onresize = function() {
+  if (playMenu){
+    generatePosition()
+  }
+};
 //drag and drop
 let whereIsItem = {
   id: 1,
@@ -461,6 +472,7 @@ function timer(secund) {
       showMenu("end-menu");
       document.getElementById("items").innerHTML = "";
       document.getElementById("score-title").textContent = `Your Score: ${counter}`;
+      playMenu = false;
     }
   }, 1000);
 }
