@@ -235,7 +235,15 @@ const items_data = [
         [null, null, "diamond", null, null, "stick", null, null, "stick"],
       ],
   },
-  
+  {
+    picture: "minecart",
+    craftable: true,
+    difficulty: "easy",
+    recipe: [
+      ["iron", null, "iron", "iron", "iron","iron", null, null, null],
+      [null, null, null, "iron",null,"iron","iron","iron", "iron"],
+    ],
+  },
   {
     picture: "oak_boat",
     craftable: true,
@@ -279,25 +287,6 @@ const items_data = [
     recipe: [
       ["copper","copper","copper" , "copper", "copper","copper",null, null, null],
       [null,null,null ,"copper","copper","copper","copper", "copper", "copper"],
-    ],
-  },
-  {
-    picture: "crafting_table",
-    craftable: true,
-    difficulty: "easy",
-    recipe: [
-      ["oak_planks","oak_planks",null , "oak_planks", "oak_planks",null,null, null, null],
-      [null,null,null ,"oak_planks","oak_planks",null,"oak_planks", "oak_planks", null],
-      [null,null,null ,null,"oak_planks","oak_planks",null, "oak_planks", "oak_planks"],
-      [null,"oak_planks","oak_planks" ,null,"oak_planks","oak_planks", null,  null, null],
-    ],
-  },
-  {
-    picture: "furnace",
-    craftable: true,
-    difficulty: "easy",
-    recipe: [
-      ["cobblestone", "cobblestone", "cobblestone", "cobblestone", null, "cobblestone", "cobblestone", "cobblestone"," cobblestone"]
     ],
   },
   {
@@ -456,10 +445,10 @@ const items_data = [
     craftable: true,
     difficulty: "medium",
     recipe: [
-      [null,"honeycomb_block","honeycomb_block", null, "honeycomb_block","honeycomb_block",null, null,null],
-      ["honeycomb_block", "honeycomb_block",null,"honeycomb_block","honeycomb_block", null,null, null,null],
-      [null, null,null,null,"honeycomb_block","honeycomb_block", null, "honeycomb_block","honeycomb_block"],
-      [null, null,null,"honeycomb_block", "honeycomb_block",null,"honeycomb_block","honeycomb_block", null],
+      [null,"honeycomb","honeycomb", null, "honeycomb","honeycomb",null, null,null],
+      ["honeycomb", "honeycomb",null,"honeycomb","honeycomb", null,null, null,null],
+      [null, null,null,null,"honeycomb_block","honeycomb", null, "honeycomb","honeycomb"],
+      [null, null,null,"honeycomb", "honeycomb",null,"honeycomb","honeycomb", null],
     ],
   },
   {
@@ -492,6 +481,14 @@ const items_data = [
     difficulty: "medium",
     recipe: [
       ["gold","gold", "gold", "gold", "apple", "gold", "gold","gold", "gold"],
+    ],
+  },
+  { 
+    picture: "golden_carrot",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["gold_nugget","gold_nugget", "gold_nugget", "gold_nugget", "carrot", "gold_nugget", "gold_nugget","gold_nugget", "gold_nugget"],
     ],
   },
   {
@@ -1158,7 +1155,156 @@ const items_data = [
     difficulty:undefined,
     recipe: null,
   },
-
+  {
+    picture: "bedrock",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "bee_nest",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "basalt",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "beetroot",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "breeze_rod",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "carrot",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "clay_ball",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "dripstone_block",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "chorus_fruit",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "dirt",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "end_stone",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "crafting_table",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "furnace",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "dragon_breath",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "phantom_membrance",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "pink_dye",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "nether_wart",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "name_tag",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "ink_sac",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "glowstone_dust",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "kelp",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "comparator",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "gold_nugget",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "goat:horn",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "rabbit_hide",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
 
 ];
 window.items_data = items_data;
