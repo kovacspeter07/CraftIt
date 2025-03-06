@@ -393,8 +393,35 @@ const items_data = [
       [null, null,null,null,null,null, null,null,"blaze_rod"],
     ],
   },
+  { 
+    picture: "haybale",
+    craftable: true,
+    difficulty: "easy",
+    recipe: [
+      ["wheat","wheat", "wheat", "wheat","wheat", "wheat", "wheat","wheat", "wheat"],
+    ],
+  },
+  { 
+    picture: "bread",
+    craftable: true,
+    difficulty: "easy",
+    recipe: [
+      ["wheat","wheat", "wheat", null, null, null, null,null, null],
+      [null, null, null,"wheat","wheat", "wheat", null,null, null],
+      [null, null, null, null,null, null,"wheat","wheat", "wheat"],
+    ],
+  },
+  { 
+    picture: "dried_kelp_block",
+    craftable: true,
+    difficulty: "easy",
+    recipe: [
+      ["dried_kelp","dried_kelp", "dried_kelp", "dried_kelp","dried_kelp", "dried_kelp", "dried_kelp","dried_kelp", "dried_kelp"],
+    ],
+  },
 
   /**Medium (30)*/
+
   {
     picture: "arrow",
     craftable: true,
@@ -447,7 +474,7 @@ const items_data = [
     recipe: [
       [null,"honeycomb","honeycomb", null, "honeycomb","honeycomb",null, null,null],
       ["honeycomb", "honeycomb",null,"honeycomb","honeycomb", null,null, null,null],
-      [null, null,null,null,"honeycomb_block","honeycomb", null, "honeycomb","honeycomb"],
+      [null, null,null,null,"honeycomb","honeycomb", null, "honeycomb","honeycomb"],
       [null, null,null,"honeycomb", "honeycomb",null,"honeycomb","honeycomb", null],
     ],
   },
@@ -460,11 +487,60 @@ const items_data = [
     ],
   },
   {
+    picture: "polished_diorite",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      [null,"diorite","diorite", null, "diorite","diorite",null, null,null],
+      ["diorite", "diorite",null,"diorite","diorite", null,null, null,null],
+      [null, null,null,null,"diorite","diorite", null, "diorite","diorite"],
+      [null, null,null,"diorite", "diorite",null,"diorite","diorite", null],
+    ],
+  },
+  {
+    picture: "polished_granite",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      [null,"granite","granite", null, "granite","granite",null, null,null],
+      ["granite", "granite",null,"granite","granite", null,null, null,null],
+      [null, null,null,null,"granite","granite", null, "granite","granite"],
+      [null, null,null,"granite", "granite",null,"granite","granite", null],
+    ],
+  },
+  {
+    picture: "stone_bricks",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      [null,"stone","stone", null, "stone","stone",null, null,null],
+      ["stone", "stone",null,"stone","stone", null,null, null,null],
+      [null, null,null,null,"stone","stone", null, "stone","stone"],
+      [null, null,null,"stone", "stone",null,"stone","stone", null],
+    ],
+  },
+  {
     picture: "lantern",
     craftable: true,
     difficulty: "medium",
     recipe: [
       ["iron_nugget","iron_nugget", "iron_nugget", "iron_nugget","torch", "iron_nugget", "iron_nugget", "iron_nugget","iron_nugget"],
+    ],
+  },
+  {
+    picture: "netherite",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["netherite_scrap","netherite_scrap", "netherite_scrap", "gold",null,"netherite_scrap", "gold", "gold","gold"],
+    ],
+  },
+  {
+    picture: "oak_sign",
+    craftable: true,
+    difficulty: "medium",
+    recipe: [
+      ["oak_planks","oak_planks", "oak_planks", "oak_planks","oak_planks","oak_planks", null, "stick",null],
     ],
   },
   {
@@ -627,16 +703,6 @@ const items_data = [
     ],
   },
   { 
-    picture: "bread",
-    craftable: true,
-    difficulty: "medium",
-    recipe: [
-      ["wheat","wheat", "wheat", null, null, null, null,null, null],
-      [null, null, null,"wheat","wheat", "wheat", null,null, null],
-      [null, null, null, null,null, null,"wheat","wheat", "wheat"],
-    ],
-  },
-  { 
     picture: "enchanting_table",
     craftable: true,
     difficulty: "medium",
@@ -651,14 +717,6 @@ const items_data = [
     recipe: [
       ["glass", null, "glass", null, "glass", null,null, null,null],
       [null,null, null, "glass", null, "glass", null, "glass",null],
-    ],
-  },
-  { 
-    picture: "dried_kelp_block",
-    craftable: true,
-    difficulty: "medium",
-    recipe: [
-      ["dried_kelp","dried_kelp", "dried_kelp", "dried_kelp","dried_kelp", "dried_kelp", "dried_kelp","dried_kelp", "dried_kelp"],
     ],
   },
   { 
@@ -764,6 +822,14 @@ const items_data = [
     difficulty: "hard",
     recipe: [
       ["string","string", null, "string", "slime_ball", null,null,null, "string"],
+    ],
+  },
+  { 
+    picture: "target",
+    craftable: true,
+    difficulty: "hard",
+    recipe: [
+      [null,"redstone",null,"redstone","haybale","redstone",null,"redstone",null],
     ],
   },
   { 
@@ -893,12 +959,6 @@ const items_data = [
   },
   {
     picture: "diamond",
-    craftable: false,
-    difficulty:undefined,
-    recipe: null,
-  },
-  {
-    picture: "netherite",
     craftable: false,
     difficulty:undefined,
     recipe: null,
@@ -1240,7 +1300,7 @@ const items_data = [
     recipe: null,
   },
   {
-    picture: "phantom_membrance",
+    picture: "phantom_membrane",
     craftable: false,
     difficulty:undefined,
     recipe: null,
@@ -1294,13 +1354,73 @@ const items_data = [
     recipe: null,
   },
   {
-    picture: "goat:horn",
+    picture: "goat_horn",
     craftable: false,
     difficulty:undefined,
     recipe: null,
   },
   {
     picture: "rabbit_hide",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "shulker_shell",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "netherite_scrap",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "totten_flesh",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "purpur_block",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "granite",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "diorite",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "tuff",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "terracotta",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "stone",
+    craftable: false,
+    difficulty:undefined,
+    recipe: null,
+  },
+  {
+    picture: "sea_pickle",
     craftable: false,
     difficulty:undefined,
     recipe: null,
