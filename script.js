@@ -519,9 +519,6 @@ function chooseCraft() {
     document.getElementById("x11rect").style.backgroundSize = "9vh";
     document.getElementById("x11rect").style.backgroundPosition = "center";
     randomFillerItemList = fillRandomFillerList(randomItem.recipe);
-    console.log(randomFillerItemList);
-  } else {
-    console.log("Nincs item.");
   }
 }
 
@@ -537,7 +534,6 @@ function checkCorrectCraft() {
 
     for (let j = 0; j < recipe.length; j++) {
       if (recipe[j] !== itemList[j]) {
-        console.log(recipe, itemList);
         isRecipeMatch = false;
         break;
       }
@@ -549,11 +545,8 @@ function checkCorrectCraft() {
   }
 
   if (isCraftCorrect) {
-    console.log("Hurrá, a crafting sikerült!");
     counter++;
     refresh();
-  } else {
-    console.log("A crafting nem helyes.");
   }
 }
 
@@ -599,3 +592,5 @@ function fillRandomFillerList(recipe) {
 
   return filledList;
 }
+
+
