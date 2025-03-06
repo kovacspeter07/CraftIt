@@ -6,6 +6,7 @@ document.getElementById("play-button").addEventListener("click", function () {
 document.querySelectorAll(".back-button").forEach((button) => {
   button.addEventListener("click", function () {
     showMenu("main-menu");
+    counter=0;
   });
 });
 
@@ -903,6 +904,7 @@ function snapback() {
   whereIsItem.y = whereIsItem.lastposition.top;
 }
 
+//timer
 function timer(secund) {
   var sec = secund;
   var timer = setInterval(function () {
@@ -910,8 +912,9 @@ function timer(secund) {
     sec--;
     if (sec < 0) {
       clearInterval(timer);
-      showMenu("main-menu");
+      showMenu("end-menu");
       document.getElementById("items").innerHTML = "";
+      document.getElementById("score-title").textContent = `Your Score: ${counter}`;
     }
   }, 1000);
 }
@@ -965,7 +968,7 @@ function chooseCraft() {
     craftedItemList = randomItem.recipe;
     document.getElementById(
       "x11rect"
-    ).style.background = `url(${difficulty}_item/${randomItem.picture}.png)`;
+    ).style.background = `url(item/${randomItem.picture}.png)`;
     document.getElementById("x11rect").style.backgroundRepeat = "no-repeat";
     document.getElementById("x11rect").style.backgroundSize = "9vh";
     document.getElementById("x11rect").style.backgroundPosition = "center";
@@ -976,6 +979,7 @@ function chooseCraft() {
   }
 }
 
+var counter=0;
 // check if the craft is correct by checking the recipie
 function checkCorrectCraft() {
   let isCraftCorrect = false;
@@ -1000,6 +1004,7 @@ function checkCorrectCraft() {
 
   if (isCraftCorrect) {
     console.log("Hurrá, a crafting sikerült!");
+    counter++;
     refresh();
   } else {
     console.log("A crafting nem helyes.");

@@ -619,8 +619,8 @@ const items_data = [
     difficulty: "medium",
     recipe: [
       ["wheat","wheat", "wheat", null, null, null, null,null, null],
-      [null, null, null,"wheat","wheat", "wheat", null,null, null]
-      [null, null, null, null,null, null,"wheat","wheat", "wheat" ]
+      [null, null, null,"wheat","wheat", "wheat", null,null, null],
+      [null, null, null, null,null, null,"wheat","wheat", "wheat"],
     ],
   },
   { 
@@ -818,7 +818,7 @@ const items_data = [
     craftable: true,
     difficulty: "hard",
     recipe: [
-      ["armadilo_scute",null, null, "armadilo_scute", "armadilo_scute", "armadilo_scute", "armadilo_scute",null, "armadilo_scute"],
+      ["armadillo_scute",null, null, "armadillo_scute", "armadillo_scute", "armadillo_scute", "armadillo_scute",null, "armadillo_scute"],
     ],
   },
   { 
@@ -838,11 +838,11 @@ const items_data = [
     ],
   },
   { 
-    picture: "sea_lanter",
+    picture: "sea_lantern",
     craftable: true,
     difficulty: "hard",
     recipe: [
-      ["prismarine_shard","prismarine_crystal", "prismarine_shard", "prismarine_crystal", "prismarine_crystal", "prismarine_crystal", "prismarine_shard","prismarine_crystal", "prismarine_shard"],
+      ["prismarine_shard","prismarine_crystals", "prismarine_shard", "prismarine_crystals", "prismarine_crystals", "prismarine_crystals", "prismarine_shard","prismarine_crystals", "prismarine_shard"],
     ],
   },
 
@@ -939,7 +939,7 @@ const items_data = [
     recipe: null,
   },
   {
-    picture: "prismarine_crystal",
+    picture: "prismarine_crystals",
     craftable: false,
     difficulty: undefined,
     recipe: null,
@@ -1059,7 +1059,7 @@ const items_data = [
     recipe: null,
   },
   {
-    picture: "armadilo_scute",
+    picture: "armadillo_scute",
     craftable: false,
     difficulty:undefined,
     recipe: null,
