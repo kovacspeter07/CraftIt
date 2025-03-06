@@ -275,7 +275,6 @@ function putItemDown(notStart) {
   }px;"
     onmousedown="dragStart(${i})"
     onmouseup = dragEnd()
-    onmousemove = dragMouseMove(window.event)
     >
     `;
     item += changedItem
@@ -306,18 +305,15 @@ function dragEnd() {
 
 function dragMouseMove(event) {
   if (whereIsItem.isDragged) {
-    const box = event.target.closest(".item");
-    if (!box) {
-      return;
-    }
+    const box = document.getElementById(whereIsItem.id).getBoundingClientRect();
     whereIsItem.x =
-      document.getElementById("crafting_img").offsetLeft +
+      document.getElementById("body").offsetLeft +
       event.clientX -
-      box.offsetWidth / 2;
+      box.width / 2;
     whereIsItem.y =
-      document.getElementById("crafting_img").offsetTop +
+      document.getElementById("body").offsetTop +
       event.clientY -
-      box.offsetHeight / 2;
+      box.height / 2;
     putItemDown(true);
   }
 }
