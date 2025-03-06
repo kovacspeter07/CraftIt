@@ -140,7 +140,7 @@ const items_data = [
     craftable: true,
     difficulty: "easy",
     recipe: [
-      ["gold", "gold", null, "cobblestone", "stick", null, null, "stick", null],
+      ["gold", "gold", null, "gold", "stick", null, null, "stick", null],
       [null, "gold", "gold", null, "gold", "stick", null, null, "stick"],
       [null, "gold","gold", null, "stick","gold", null, "stick", null],
       [null, "gold", "gold", null, "gold", "stick", null, null, "stick"],
@@ -659,7 +659,7 @@ const items_data = [
     recipe: [
       [null,"amethyst_shard",null,null,"copper",null,null,"copper",null],
       ["amethyst_shard", null,null,"copper", null,null,"copper",null,null],
-      [null,null,"amethyst_shard", null,null, "copper",null,null,"copper"],,
+      [null,null,"amethyst_shard", null,null, "copper",null,null,"copper"],
     ],
   },
   { 
