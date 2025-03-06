@@ -10,18 +10,23 @@ document.querySelectorAll(".back-button").forEach((button) => {
   });
 });
 
+let playMenu = false;
+
 document.getElementById("easy-button").addEventListener("click", function () {
   showMenu("play-menu");
+  playMenu = true;
   easyPressed();
 });
 
 document.getElementById("medium-button").addEventListener("click", function () {
   showMenu("play-menu");
+  playMenu = true;
   mediumPressed();
 });
 
 document.getElementById("hard-button").addEventListener("click", function () {
   showMenu("play-menu");
+  playMenu = true;
   hardPressed();
 });
 
@@ -214,6 +219,12 @@ function refresh() {
   chooseCraft();
   generatePosition();
 }
+
+window.onresize = function() {
+  if (playMenu){
+    generatePosition()
+  }
+};
 //drag and drop
 let whereIsItem = {
   id: 1,
@@ -255,20 +266,31 @@ function putItemDown(notStart) {
   }
   var item = ""
   for (let i = 1; i < 37; i++){
-    changedItem = `
-    <img class="item" id="${i}" src="item/${randomFillerItemList[i - 1]}.png" ${
-    whereIsItem.isDragged ? "grabbed" : "not-grabbed"
-  }"
-    style="position: absolute; left: ${whereIsItemLeft[i]}px; top: ${
-    whereIsItemTop[i]
-  }px;"
-    onmousedown="dragStart(${i})"
-    onmouseup = dragEnd()
-    onmousemove = dragMouseMove(window.event)
-    >
-    `;
+    if (i != whereIsItem.id){
+      var changedItem = `
+      <img class="item" id="${i}" src="item/${randomFillerItemList[i - 1]}.png"
+    }"
+      style="position: absolute; left: ${whereIsItemLeft[i]}px; top: ${
+      whereIsItemTop[i]
+    }px;"
+      onmousedown="dragStart(${i})"
+      onmouseup = dragEnd()
+      >
+      `;
     item += changedItem
+    }
   }
+  var draggedItem = `
+      <img class="item" id="${whereIsItem.id}" src="item/${randomFillerItemList[whereIsItem.id - 1]}.png"
+    }"
+      style="position: absolute; left: ${whereIsItemLeft[whereIsItem.id]}px; top: ${
+      whereIsItemTop[whereIsItem.id]
+    }px;"
+      onmousedown="dragStart(${whereIsItem.id})"
+      onmouseup = dragEnd()
+      >
+      `;
+    item += draggedItem
   document.getElementById("items").innerHTML = item;
 }
 
@@ -282,6 +304,7 @@ function dragStart(num) {
     }
   }
   whereIsItem.isDragged = true;
+  document.getElementById(num).style.backgroundColor = "red";
   gridSelect(false);
   putItemDown(true);
 }
@@ -295,18 +318,15 @@ function dragEnd() {
 
 function dragMouseMove(event) {
   if (whereIsItem.isDragged) {
-    const box = event.target.closest(".item");
-    if (!box) {
-      return;
-    }
+    const box = document.getElementById(whereIsItem.id).getBoundingClientRect();
     whereIsItem.x =
-      document.getElementById("crafting_img").offsetLeft +
+      document.getElementById("body").offsetLeft +
       event.clientX -
-      box.offsetWidth / 2;
+      box.width / 2;
     whereIsItem.y =
-      document.getElementById("crafting_img").offsetTop +
+      document.getElementById("body").offsetTop +
       event.clientY -
-      box.offsetHeight / 2;
+      box.height / 2;
     putItemDown(true);
   }
 }
@@ -461,6 +481,7 @@ function timer(secund) {
       showMenu("end-menu");
       document.getElementById("items").innerHTML = "";
       document.getElementById("score-title").textContent = `Your Score: ${counter}`;
+      playMenu = false;
     }
   }, 1000);
 }
