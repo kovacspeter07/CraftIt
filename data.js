@@ -7,6 +7,8 @@ const items_data = [
     recipe: [
       ["cobblestone", "cobblestone", null, "cobblestone", "stick", null, null, "stick", null],
       [null, "cobblestone", "cobblestone", null, "cobblestone", "stick", null, null, "stick"],
+      [null, "cobblestone","cobblestone", null, "stick","cobblestone", null, "stick", null],
+      [null, "cobblestone", "cobblestone", null, "cobblestone", "stick", null, null, "stick"],
     ],
   },
   {
@@ -15,6 +17,8 @@ const items_data = [
     difficulty: "easy",
     recipe: [
       ["cobblestone","cobblestone", null, null, "stick", null, null, "stick", null],
+      [null,"cobblestone","cobblestone", null, "stick", null, null, "stick", null],
+      ["cobblestone","cobblestone", null, "stick", null ,"stick", null, null, null],
       [null, "cobblestone", "cobblestone", null, null, "stick", null, null, "stick"],
     ],
   },
@@ -53,6 +57,8 @@ const items_data = [
     recipe: [
       ["iron", "iron", null, "iron", "stick", null, null, "stick", null],
       [null, "iron", "iron", null, "iron", "stick", null, null, "stick"],
+      [null, "iron","iron", null, "stick","iron", null, "stick", null],
+      [null, "iron", "iron", null, "iron", "stick", null, null, "stick"],
     ],
   },
   {
@@ -60,7 +66,9 @@ const items_data = [
     craftable: true,
     difficulty: "easy",
     recipe: [
-      ["iron", "iron", null, null, "stick", null, null, "stick", null],
+      ["iron","iron", null, null, "stick", null, null, "stick", null],
+      [null,"iron","iron", null, "stick", null, null, "stick", null],
+      ["iron","iron", null, "stick", null ,"stick", null, null, null],
       [null, "iron", "iron", null, null, "stick", null, null, "stick"],
     ],
   },
@@ -132,7 +140,9 @@ const items_data = [
     craftable: true,
     difficulty: "easy",
     recipe: [
-      ["gold", "gold", null, "gold", "stick", null, null, "stick", null],
+      ["gold", "gold", null, "cobblestone", "stick", null, null, "stick", null],
+      [null, "gold", "gold", null, "gold", "stick", null, null, "stick"],
+      [null, "gold","gold", null, "stick","gold", null, "stick", null],
       [null, "gold", "gold", null, "gold", "stick", null, null, "stick"],
     ],
   },
@@ -141,7 +151,9 @@ const items_data = [
     craftable: true,
     difficulty: "easy",
     recipe: [
-      ["gold", "gold", null, null, "stick", null, null, "stick", null],
+      ["gold","gold", null, null, "stick", null, null, "stick", null],
+      [null,"gold","gold", null, "stick", null, null, "stick", null],
+      ["gold","gold", null, "stick", null ,"stick", null, null, null],
       [null, "gold", "gold", null, null, "stick", null, null, "stick"],
     ],
   },
@@ -178,7 +190,9 @@ const items_data = [
     craftable: true,
     difficulty: "easy",
     recipe: [
-      ["diamond", "diamond", null, "diamond", "stick", null, null, "stick", null],
+      ["diamond", "cobblestone", null, "diamond", "stick", null, null, "stick", null],
+      [null, "diamond", "diamond", null, "diamond", "stick", null, null, "stick"],
+      [null, "diamond","cobblestone", null, "stick","diamond", null, "stick", null],
       [null, "diamond", "diamond", null, "diamond", "stick", null, null, "stick"],
     ],
   },
@@ -187,7 +201,9 @@ const items_data = [
     craftable: true,
     difficulty: "easy",
     recipe: [
-      ["diamond", "diamond", null, null, "stick", null, null, "stick", null],
+      ["diamond","diamond", null, null, "stick", null, null, "stick", null],
+      [null,"diamond","diamond", null, "stick", null, null, "stick", null],
+      ["diamond","diamond", null, "stick", null ,"stick", null, null, null],
       [null, "diamond", "diamond", null, null, "stick", null, null, "stick"],
     ],
   },
